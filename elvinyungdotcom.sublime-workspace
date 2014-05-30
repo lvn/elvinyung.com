@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"min",
+				"min-height"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"marg",
+				"margin-left"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"widt",
+				"width"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"padd",
+				"padding-right"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
 				"co",
 				"Column"
 			],
@@ -22,10 +58,6 @@
 			[
 				"border",
 				"border-style"
-			],
-			[
-				"widt",
-				"border-width"
 			],
 			[
 				"cell",
@@ -64,10 +96,6 @@
 				"border-width"
 			],
 			[
-				"font",
-				"font-size"
-			],
-			[
 				"fon",
 				"font-size"
 			],
@@ -78,10 +106,6 @@
 			[
 				"margi",
 				"margin-bottom"
-			],
-			[
-				"marg",
-				"margin"
 			],
 			[
 				"b",
@@ -98,10 +122,6 @@
 			[
 				"meth",
 				"method"
-			],
-			[
-				"bac",
-				"background-color"
 			],
 			[
 				"text",
@@ -131,6 +151,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 1675,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -159,6 +187,12 @@
 	},
 	"file_history":
 	[
+		"/media/eyung/ELVINYUNG1/stuff/elvinyung.com/css/style.css",
+		"/media/eyung/ELVINYUNG1/stuff/elvinyung_com/index.html",
+		"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/blog/templates/layout.html",
+		"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/blog/static/style.css",
+		"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/static/style.css",
+		"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/blog/templates/blog_main.html",
 		"/media/eyung/ELVINYUNG1/stuff/Flask/wiski/run.py",
 		"/media/eyung/ELVINYUNG1/stuff/Flask/florum/config.py",
 		"/media/eyung/ELVINYUNG1/stuff/Flask/florum/templates/index.html",
@@ -202,9 +236,6 @@
 		"/media/eyung/ELVINYUNG1/stuff/Node/NodeToDo/readme.md",
 		"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/blog/templates/post.html",
 		"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/blog/models.py",
-		"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/blog/static/style.css",
-		"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/blog/templates/layout.html",
-		"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/blog/templates/blog_main.html",
 		"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/blog/templates/new_post.html",
 		"/media/eyung/ELVINYUNG1/stuff/Flask/quimbu/templates/make_post.html",
 		"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/blog/views.py",
@@ -235,7 +266,6 @@
 		"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/blog/urls.py",
 		"/media/eyung/ELVINYUNG1/stuff/elvinyung_com/static/carousel.css",
 		"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/eyBlog/urls.py",
-		"/media/eyung/ELVINYUNG1/stuff/elvinyung_com/index.html",
 		"/javac",
 		"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/eyBlog/wsgi.py",
 		"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/templates/blog_main.html",
@@ -282,6 +312,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"    ",
 			"\">\n",
 			"    ",
 			"user",
@@ -330,8 +361,38 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1675,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1404,
+								1404
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -395,7 +456,7 @@
 		[
 			[
 				"",
-				"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/eyBlog.sublime-project"
+				"/media/eyung/ELVINYUNG1/stuff/Flask/florum/florum.sublime-project"
 			]
 		],
 		"width": 380.0

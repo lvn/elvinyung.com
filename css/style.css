@@ -5,14 +5,16 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
 
 /* layout */
-div.left_bar { float: left; width: 13%; height: 100%; 
-	margin-right: 20px; margin-left: 10px;  }
-div.main { width: 80%; margin-left: 20px; }
-div.slide { min-height: 600px; }
-
 html { height: 100%; }
 body { height: 100%; background-color: #333; margin: 10px;
 	color: #eee; font-family: 'Source Sans Pro', sans-serif; font-weight: 300; }
+::selection { color: #333; background-color: #eee; } 
+
+div.left_bar { float: left; width: 15%; height: 100%; 
+	margin-right: 20px; margin-left: 10px;  }
+div.main { width: 80%; margin-left: 15%; }
+div.slide { margin: 10px 0px 10px 0px; }
+
 
 h2.top { margin-top: 0px; }
 
@@ -20,6 +22,6 @@ p.tiny { font-size: 0.7em; }
 p.strikethrough { text-decoration: line-through; }
 
 /* links */
-a { color: #aaa; }
-a:hover { color: #eee; text-shadow: 0 0 0.2em #fff; }
+a { color: #aaa; text-decoration: none; }
+a:hover { color: #eee; text-shadow: 0 0 0.2em #fff; text-decoration: underline; }
 a:visited { color: #999; ];
