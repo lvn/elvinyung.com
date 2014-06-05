@@ -22,11 +22,8 @@ p.tiny { font-size: 0.7em; }
 p.strikethrough { text-decoration: line-through; }
 
 /* links */
-a { color: #aaa; text-decoration: none;  transition: color 0.3s, text-shadow 0.3s; }
+a { color: #aaa; text-decoration: none; }
 a:hover { color: #eee; text-shadow: 0 0 0.2em #fff; text-decoration: underline; }
-a:visited { color: #999; }
-
-a.hilite { color: #eee; text-decoration: none; }
-a.hilite:hover { color: #ffffaa; text-shadow: 0 0 0.2em #aaaa00; text-decoration: none; }
+a:visited { color: #999; ];
 
 ul { margin-left: 10px; }
