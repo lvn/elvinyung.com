@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"padd",
+				"padding"
+			],
+			[
 				"marg",
 				"margin"
 			],
@@ -30,10 +34,6 @@
 			[
 				"wi",
 				"width"
-			],
-			[
-				"padd",
-				"padding-right"
 			],
 			[
 				"bac",
@@ -152,39 +152,26 @@
 	"buffers":
 	[
 		{
-			"contents": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n	<meta charset=\"utf-8\">\n	<title>I am Elvin Yung.</title>\n	<link rel=\"stylesheet\" href=\"css/style.css\">\n	<!--[if IE]>\n		<script src=\"http://html5shiv.googlecode.com/svn/trunk/html5.js\"></script>\n	<![endif]-->\n</head>\n\n<body>\n	<div class=\"left_bar\">\n		<h2 class=\"top\">Elvin Yung</h2>\n		<p class=\"strikethrough\">Some Sort of Wizard</p>\n		<p>2A University of Waterloo Computer Science Student</p>\n\n		<h4>Stuff</h4>\n		<ul class=\"left_bar\">\n			<li><a href=\"#slide1\">Who I Am</a></li>\n			<li><a href=\"#slide2\">What I Do</a></li>\n		</ul>\n		<h4>Other Stuff</h4>\n		<ul class=\"left_bar\">\n			<li><a href=\"http://github.com/elvinyung\">My Github</a></li>\n			<li><a href=\"stuff/resume.pdf\">My Resume</a></li>\n		</ul>\n	</div>\n\n	<div class=\"main\">\n		<div class=\"slide\" id=\"slide1\">\n			<h1>Hello.</h1>\n			<h2>I am Elvin Yung.</h2>\n			<h3>I am a second-year Computer Science student at the University of Waterloo.</h3>\n			<p>By some chance of fate or coincidence, you have stumbled onto my website.</p>\n			<p>Which is a good thing. Probably.</p>\n		</div>\n\n		<div class=\"slide\" id=\"slide2\">\n			<h3>What do I do?</h3>\n			<p>I like to develop applications for the web. I know my way around Django and Flask, most of the time.</p>\n			<p>Sometimes I make games. I have a few years of experience with XNA in particular, and I've also dabbled at times with Flixel, Irrlicht, and Pygame.</p>\n			<p>In the recent past I've worked on (o ram still working on): </p>\n			<ul>\n				<li><a href=\"https://github.com/elvinyung/wiski\">Wiski</a> (Python, Flask), a lightweight Markdown-rendered wiki written in</li>\n				<li><a href=\"https://github.com/elvinyung/eyBlog\">eyBlog</a> (Python, Django), a simple blog</li>\n				<li><a href=\"https://github.com/elvinyung/florum\">Quimbu</a> (Python, Flask), a link-sharing bulletin board</li>\n				<li><a href=\"https://github.com/elvinyung/Pebble2048\">Pebble2048</a> (C, PebbleSDK), an adaptation of <a href=\"http://gabrielecirulli.github.io/2048/\">2048</a> for the Pebble smartwatch, currently the second most popular 2048 app on the Pebble app store.</li>\n			</ul>\n			\n			<p><a href=\"http://github.com/elvinyung\">Here's</a> a bunch of my projects.</p>\n		</div>\n\n		<hr>\n\n\n		<p class=\"tiny\">Copyright Elvin Yung 2014. </p>\n		<p class=\"tiny\">Handcrafted HTML5 and CSS3. None of that pesky booting and strapping.</p>\n	</div>\n\n</body>\n</html> \n",
-			"file": "index.html",
-			"file_size": 2383,
-			"file_write_time": 130459432049375084,
-			"settings":
-			{
-				"buffer_size": 2383,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "import os, sys\nimport random\nimport string\nimport hashlib\n\nimport cherrypy\nimport lib.MakoTool\ncherrypy.tools.render = MakoTool()\n\nfrom sqlalchemy import Column, ForeignKey, Integer, String\nfrom sqlalchemy.ext.declarative import declarative_base\nfrom sqlalchemy.orm import relationship\nfrom sqlalchemy import create_engine\n \nBase = declarative_base()\n \nclass User(Base):\n    __tablename__ = \"person\"\n    id = Column(Integer, primary_key=True)\n    name = Column(String(250), nullable=False)\n    password_hash = Column(String(64), nullable=False)\n \nclass Address(Base):\n    __tablename__ = \"address\"\n    # Here we define columns for the table address.\n    # Notice that each column is also a normal Python instance attribute.\n    id = Column(Integer, primary_key=True)\n    street_name = Column(String(250))\n    street_number = Column(String(250))\n    post_code = Column(String(250), nullable=False)\n    person_id = Column(Integer, ForeignKey(\"person.id\"))\n    person = relationship(User)\n\nengine = create_engine(\"sqlite:///sqlalchemy_example.db\")\nBase.metadata.create_all(engine) # create all tables in the engine\n\nclass Qodex(object):\n    @cherrypy.expose\n    @cherrypy.tools.user()\n    \n    def index(self):\n        pass\n\n    @cherrypy.expose\n    def logout(self):\n        cherrypy.lib.sessions.expire()\n\n    @cherrypy.expose\n    def generate(self, length=8):\n        some_string = \"\".join(random.sample(string.hexdigits, int(length)))\n        cherrypy.session[\"mystring\"] = some_string\n        return some_string\n\n    @cherrypy.expose\n    def display(self):\n        return cherrypy.session[\"mystring\"]\n\nif __name__ == \"__main__\":\n    configuration = {\n        \"/\": {\n            \"tools.sessions.on\": True,\n            \"tools.staticdir.root\": os.path.abspath(os.getcwd()),\n\n            \"server.socket_host\": \"0.0.0.0\",\n            \"server.socket_port\": 443,\n\n            \"server.ssl_module\": \"builtin\",\n            \"server.ssl_certificate\": \"./ssl/certificate.crt\",\n            \"server.ssl_private_key\": \"./ssl/private_key.key\",\n            \"server.ssl_certificate_chain\": \"./ssl/certificate_chain.crt\",\n        },\n        \"/static\": {\n            \"tools.staticdir.on\": True,\n            \"tools.staticdir.dir\": \"./static\",\n        }\n    }\n    cherrypy.quickstart(Qodex(), \"/\", configuration)\n",
-			"file": "/media/eyung/ELVINYUNG1/stuff/battlehack2014/qodex/main.py",
-			"file_size": 2369,
-			"file_write_time": 130460321970692731,
-			"settings":
-			{
-				"buffer_size": 2292,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "css/style.css",
 			"settings":
 			{
-				"buffer_size": 865,
+				"buffer_size": 1309,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 2718,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resume/index.html",
+			"settings":
+			{
+				"buffer_size": 2934,
 				"line_ending": "Unix"
 			}
 		}
@@ -216,7 +203,10 @@
 	},
 	"file_history":
 	[
+		"/media/eyung/ELVINYUNG1/stuff/Python/veritas/veritas.py",
+		"/media/eyung/ELVINYUNG1/stuff/elvinyung.com/index.html",
 		"/media/eyung/ELVINYUNG1/stuff/elvinyung.com/css/style.css",
+		"/media/eyung/ELVINYUNG1/stuff/battlehack2014/qodex/main.py",
 		"/media/eyung/ELVINYUNG1/stuff/elvinyung_com/index.html",
 		"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/blog/templates/layout.html",
 		"/media/eyung/ELVINYUNG1/stuff/Django/eyBlog/blog/static/style.css",
@@ -395,105 +385,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2383,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1449,
-								1449
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 150.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/media/eyung/ELVINYUNG1/stuff/battlehack2014/qodex/main.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2292,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								896,
-								896
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 270.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "css/style.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 865,
+						"buffer_size": 1309,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								418,
-								418
+								850,
+								850
 							]
 						],
 						"settings":
@@ -504,7 +408,65 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2718,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2271,
+								2271
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "resume/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2934,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1085,
+								1085
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -570,7 +532,7 @@
 		[
 			[
 				"",
-				"/media/eyung/ELVINYUNG1/stuff/battlehack2014/qodex.sublime-project"
+				"/media/eyung/ELVINYUNG1/stuff/Flask/voobox/voobox.sublime-project"
 			]
 		],
 		"width": 380.0

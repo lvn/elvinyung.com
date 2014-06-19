@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>I am Elvin Yung.</title>
-	<link rel="stylesheet" href="css/style.css">
+	<title>Resume - Elvin Yung</title>
+	<link rel="stylesheet" href="../css/style.css">
 	<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -17,26 +17,33 @@
 
 		<h4>Stuff on This Page</h4>
 		<ul class="left_bar">
-			<li><a href="#slide1">Who I Am</a></li>
-			<li><a href="#slide2">What I Do</a></li>
+			<li><a href="../#me">Me</a></li>
+			<li><a href="../#education">Education</a></li>
+			<li><a href="../#projects">Projects</a></li>
 		</ul>
 		<h4>Other Stuff</h4>
 		<ul class="left_bar">
-			<li><a href="resume/">Resume</a></li>
 			<li><a href="http://github.com/elvinyung">Github</a></li>
+			<li><a href="https://www.dropbox.com/s/z74bokj98jka99w/elvin_yung_resume.pdf">Resume</a></li>
 		</ul>
 	</div>
 
 	<div class="main">
-		<div class="slide" id="slide1">
-			<h1>Hello.</h1>
-			<h2>I am Elvin Yung.</h2>
-			<h3>I am a second-year Computer Science student at the University of Waterloo.</h3>
-			<p>By some chance of fate or coincidence, you have stumbled onto my website.</p>
-			<p>Which is a good thing. Probably.</p>
+		<div class="slide" id="me">
+			<h2>Elvin Yung</h2>
+
 		</div>
 
-		<div class="slide" id="slide2">
+		<div class="slide" id="education">
+			<h3>Education</h3>
+			<p>September 2013 - June 2018 (Expected) - <b>University of Waterloo</b></p>
+			<ul>
+				<li></li>
+				<li>Honours Bachelor of Computer Science</li>
+			</ul>
+		</div>
+
+		<div class="slide" id="projects">
 			<h3>What do I do?</h3>
 			<p>I like to make cool things. I like to think that I'm pretty good at <a class="hilite">C#</a> and <a class="hilite">Python</a>.</p>
 			<p>I develop applications for the web. I know my way around <a class="hilite">Django</a> and <a class="hilite">Flask</a>, most of the time.</p>
@@ -47,6 +54,7 @@
 				<li><a href="https://github.com/elvinyung/Pebble2048">Pebble2048</a> (C, PebbleSDK), an adaptation of <a href="http://gabrielecirulli.github.io/2048/">2048</a> for the Pebble smartwatch, currently the second most popular 2048 app on the Pebble app store.</li>
 				<li><a href="https://github.com/elvinyung/voobox">Voobox</a> (Python, Flask, SocketIO), a chat app</li>
 				<li><a href="https://github.com/elvinyung/eyBlog">eyBlog</a> (Python, Django), a simple blog</li>
+				<li><a href="https://github.com/elvinyung/florum">Quimbu</a> (Python, Flask), a link-sharing bulletin board</li>
 			</ul>
 			
 			<p><a href="http://github.com/elvinyung">Here's</a> a bunch of my projects.</p>
