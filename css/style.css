@@ -21,8 +21,8 @@ div#footer {padding: 0px 15px 0px 0px; }
 h2.top { margin-top: 0px; }
 
 h1, h2, h3, h4, h5, h6 { font-weight: 700; }
-.resume > .slide > h1, h2, h3, h4, h5, h6, p { margin: 5px; }
-.resume > .slide > ul { margin: 0px 0px 10px 0px; }
+.resume h1, .resume h2, .resume h3, .resume h4, .resume h5, .resume h6, .resume p { margin: 5px; }
+.resume ul { margin: 0px 0px 10px 0px; }
 p {  line-height: 1.0em; }
 
 p.tiny { font-size: 0.7em; }

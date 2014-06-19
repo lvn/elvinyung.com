@@ -155,7 +155,15 @@
 			"file": "css/style.css",
 			"settings":
 			{
-				"buffer_size": 1309,
+				"buffer_size": 1420,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resume/.fuse_hidden0000010b00000001",
+			"settings":
+			{
+				"buffer_size": 2934,
 				"line_ending": "Unix"
 			}
 		},
@@ -163,15 +171,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 2718,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resume/index.html",
-			"settings":
-			{
-				"buffer_size": 2934,
+				"buffer_size": 2837,
 				"line_ending": "Unix"
 			}
 		}
@@ -203,6 +203,7 @@
 	},
 	"file_history":
 	[
+		"/media/eyung/ELVINYUNG1/stuff/elvinyung.com/resume/index.html",
 		"/media/eyung/ELVINYUNG1/stuff/Python/veritas/veritas.py",
 		"/media/eyung/ELVINYUNG1/stuff/elvinyung.com/index.html",
 		"/media/eyung/ELVINYUNG1/stuff/elvinyung.com/css/style.css",
@@ -331,6 +332,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"	",
+			"",
+			"	",
+			"  ",
+			"	",
 			"    ",
 			"\">\n",
 			"    ",
@@ -363,6 +369,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"  ",
+			"<li>",
+			"  ",
+			"	",
+			"  ",
 			"	",
 			"\"post_title\"",
 			"	",
@@ -389,15 +400,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1309,
+						"buffer_size": 1420,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								850,
-								850
+								967,
+								967
 							]
 						],
 						"settings":
@@ -413,37 +424,8 @@
 				},
 				{
 					"buffer": 1,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2718,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2271,
-								2271
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 540.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "resume/index.html",
-					"semi_transient": false,
+					"file": "resume/.fuse_hidden0000010b00000001",
+					"semi_transient": true,
 					"settings":
 					{
 						"buffer_size": 2934,
@@ -453,8 +435,8 @@
 						"selection":
 						[
 							[
-								1085,
-								1085
+								0,
+								0
 							]
 						],
 						"settings":
@@ -463,7 +445,36 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 180.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2837,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								627,
+								627
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -532,7 +543,7 @@
 		[
 			[
 				"",
-				"/media/eyung/ELVINYUNG1/stuff/Flask/voobox/voobox.sublime-project"
+				"/media/eyung/ELVINYUNG1/stuff/Django/athenaeum/athenaeum.sublime-project"
 			]
 		],
 		"width": 380.0
