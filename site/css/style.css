@@ -91,18 +91,24 @@ ul {
 
 a {
     color: #cccccc;
+    text-decoration: none;
+}
+
+.infobox a {
+    color: #999999;
 }
 
 a:hover {
-    color: #999999;
+    color: #aaaaaa;
+    text-decoration: underline;
+}
+
+infobox a:hover {
+    color: #aaaaaa;
 }
 
 a:visited {
     color: #444444;
-}
-
-.infobox a {
-    color: #666666;
 }
 
 @media (max-width: 768px) {
