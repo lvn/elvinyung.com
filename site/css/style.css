@@ -21,6 +21,10 @@ p {
     text-align: justify;
 }
 
+ul {
+    text-align: left;
+}
+
 .thin {
     font-weight: 300;
 }
@@ -90,7 +94,7 @@ a {
 }
 
 a:hover {
-    color: #666666;
+    color: #999999;
 }
 
 a:visited {
