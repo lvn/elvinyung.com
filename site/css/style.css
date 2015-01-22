@@ -111,9 +111,21 @@ a:visited {
     color: #aaaaaa;
 }
 
+.navbar {
+    text-align: center;
+}
+
 @media (min-width: 769px) {
     .infobox {
         flex: 1 0 0;
+    }
+
+    .navbar li {
+        display: inline;
+    }
+
+    .navbar li:not(:last-child):after {
+        content: " • ";
     }
 }
 
@@ -129,5 +141,9 @@ a:visited {
         padding: 15px;
         margin: 10px;
         max-width: 100%;
+    }
+
+    .navbar {
+        list-style-type: none;
     }
 } 
