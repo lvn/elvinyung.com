@@ -90,12 +90,8 @@ ul {
 }
 
 a {
-    color: #cccccc;
+    color: #cdcdcd;
     text-decoration: none;
-}
-
-.infobox a {
-    color: #999999;
 }
 
 a:hover {
@@ -103,12 +99,22 @@ a:hover {
     text-decoration: underline;
 }
 
-infobox a:hover {
+a:visited {
+    color: #444444;
+}
+
+.infobox a {
+    color: #999999;
+}
+
+.infobox a:hover {
     color: #aaaaaa;
 }
 
-a:visited {
-    color: #444444;
+@media (min-width: 769px) {
+    .infobox {
+        flex: 1 0 0;
+    }
 }
 
 @media (max-width: 768px) {
