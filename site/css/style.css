@@ -25,6 +25,15 @@ ul {
     text-align: left;
 }
 
+blockquote {
+    text-align: left;
+}
+
+blockquote p {
+    font-style: italic;
+    text-align: inherit;
+}
+
 .thin {
     font-weight: 300;
 }
