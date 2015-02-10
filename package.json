@@ -23,6 +23,7 @@
     "gulp-livereload": "",
     "gulp-cache": "",
     "gulp-notify": "",
+    "gulp-html-replace": "",
     "del": ""
   },
   "author": "Elvin Yung <elvin@elvinyung.com>",
