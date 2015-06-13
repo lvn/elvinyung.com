@@ -11,17 +11,19 @@ var gulp = require('gulp'),
   notify = require('gulp-notify'),
   autoprefixer = require('gulp-autoprefixer'),
   minifycss = require('gulp-minify-css'),
-  htmlreplace = require('gulp-html-replace');;
+  htmlreplace = require('gulp-html-replace');
 
 var paths = {
   js: ['site/js/*.js', '!site/js/vendor/**/*.js'],
   scss: 'site/scss/style.scss',
+  assets: 'site/assets/**',
   index: 'site/index.html'
 };
 
 var dests = {
   js: 'dist/js',
   css: 'dist/css',
+  assets: 'dist/assets',
   index: 'dist'
 };
 
@@ -50,6 +52,13 @@ gulp.task('scss', function() {
     .pipe(notify({ message: 'compiled and minified scss' }));
 });
 
+
+gulp.task('assets', function() {
+  return gulp.src(paths.assets)
+    .pipe(gulp.dest(dests.assets))
+    .pipe(notify({ message: 'copied assets folder' }));
+});
+
 gulp.task('index', function() {
   return gulp.src(paths.index)
     .pipe(htmlreplace({
@@ -60,13 +69,11 @@ gulp.task('index', function() {
     .pipe(notify({ message: 'copied index.html to dist/index.html' }))
 });
 
-gulp.task('watch', function() {
-  gulp.watch(paths.js, ['js']);
-  gulp.watch(paths.scss, ['scss']);
-  livereload.listen();
-  ulp.watch(['dist/**']).on('change', livereload.changed);
+gulp.task('default', ['clean'], function() {
+  gulp.start('js', 'scss', 'assets', 'index');
 });
 
-gulp.task('default', ['clean'], function() {
-  gulp.start('js', 'scss', 'index');
+gulp.task('watch', function() {
+  livereload.listen();
+  gulp.watch('site/**/*', ['default']);
 });
