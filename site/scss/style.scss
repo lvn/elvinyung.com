@@ -1,9 +1,21 @@
+@font-face {
+    font-family: "Proxima Nova Alt";
+    src: url(../assets/ProximaNovaAltReg.otf) format("opentype");
+}
+
+$header-background: #202020;
+$content-background: #2f2f2f;
+$content-text: #ecf0f1;
+$infobox-background: #fbfbfb;
+$infobox-text: #474747;
+
+
 body {
     padding: 0;
     margin: 0;
-    font-family: "Open Sans", "Helvetica Neue", "Helvetica", sans-serif;
-    background-color: #34495e;
-    color: #ecf0f1;
+    font-family: "Proxima Nova Alt", "Helvetica Neue", "Helvetica", sans-serif;
+    background-color: $content-background;
+    color: $content-text;
 }
 
 h1, h2, h3, h4 {
@@ -47,8 +59,12 @@ ul {
     padding-top: 10px;
     padding-bottom: 10px;
     /*min-height: 100px;*/
-    background-color: #2c3e50;
+    background-color: $header-background;
     vertical-align: middle;
+}
+
+.top-left {
+    float: left;
 }
 
 .slide {
@@ -75,8 +91,8 @@ ul {
 .infobox {
     padding: 15px;
     margin: 10px;
-    background-color: #fbfcfc;
-    color: #474747;
+    background-color: $infobox-background;
+    color: $infobox-text;
 }
 
 .one-third {
@@ -111,6 +127,7 @@ a:visited {
 
 .navbar {
     text-align: center;
+    float: right;
 }
 
 @media (min-width: 1101px) {
