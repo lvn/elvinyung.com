@@ -64,7 +64,7 @@ gulp.task('watch', function() {
   gulp.watch(paths.js, ['js']);
   gulp.watch(paths.scss, ['scss']);
   livereload.listen();
-  ulp.watch(['dist/**']).on('change', livereload.changed);
+  gulp.watch(['dist/**']).on('change', livereload.changed);
 });
 
 gulp.task('default', ['clean'], function() {
