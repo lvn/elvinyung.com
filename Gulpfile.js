@@ -72,6 +72,4 @@ gulp.task('serve', serve('dist'));
 
 gulp.task('build', ['js', 'scss', 'index']);
 
-gulp.task('default', ['clean'], function() {
-  gulp.start('build');
-});
+gulp.task('default', ['clean', 'build']);
