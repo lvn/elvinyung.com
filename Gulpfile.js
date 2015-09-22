@@ -67,6 +67,8 @@ gulp.task('watch', function() {
   gulp.watch(['dist/**']).on('change', livereload.changed);
 });
 
+gulp.task('build', ['js', 'scss', 'index']);
+
 gulp.task('default', ['clean'], function() {
-  gulp.start('js', 'scss', 'index');
+  gulp.start('build');
 });
