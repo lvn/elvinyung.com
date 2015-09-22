@@ -11,7 +11,8 @@ var gulp = require('gulp'),
   notify = require('gulp-notify'),
   autoprefixer = require('gulp-autoprefixer'),
   minifycss = require('gulp-minify-css'),
-  htmlreplace = require('gulp-html-replace');;
+  htmlreplace = require('gulp-html-replace'),
+  serve = require('gulp-serve');
 
 var paths = {
   js: ['site/js/*.js', '!site/js/vendor/**/*.js'],
@@ -66,6 +67,8 @@ gulp.task('watch', function() {
   livereload.listen();
   gulp.watch(['dist/**']).on('change', livereload.changed);
 });
+
+gulp.task('serve', serve('dist'));
 
 gulp.task('build', ['js', 'scss', 'index']);
 
