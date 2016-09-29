@@ -1,4 +1,11 @@
 body {
-  font-family: 'Helvetica Neue', sans-serif;
-  font-size: 14px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  text-align: center;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 21px;
 }
