@@ -48,3 +48,18 @@ h2 {
   color: #dfdfdf;
   background: #111;
 }
+
+hr {
+  border: 0;
+  text-align: center;
+  height: 2em;
+
+  &:after {
+    content: "* * *"
+  }
+
+}
+
+.lower {
+  text-transform: lowercase;
+}
