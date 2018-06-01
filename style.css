@@ -1,32 +1,28 @@
 body {
   font-family: "GlacialIndifferenceRegular", "Helvetica Neue Light", sans-serif;
   font-size: 1.1em;
+  text-transform: lowercase;
 
   background-color: #222;
   color: #bcbcbc;
+
+  margin: 2em 10% 10%;
 }
 
-p {
-  /*text-shadow: 0 0 0.3px #ccc;*/
-  font-size: 1.2em;
-}
-
-@media(min-width:1000px) {
+@media (min-width: 1000px) {
   body {
     margin: 2em 20% 20%;
   }
 }
 
-@media(max-width:1000px) {
-  body {
-    margin: 2em 10% 10%;
-  }
+p {
+  font-size: 1.2em;
 }
 
 a {
   color: #dfdfdf;
 }
-
+  
 a:visited {
   color: #888;
 }
@@ -53,13 +49,12 @@ hr {
   border: 0;
   text-align: center;
   height: 2em;
-
-  &:after {
-    content: "* * *"
-  }
-
 }
 
-.lower {
-  text-transform: lowercase;
+hr::after {
+  content: "* * *";
+}
+
+blockquote {
+  padding-top: 3em;
 }
