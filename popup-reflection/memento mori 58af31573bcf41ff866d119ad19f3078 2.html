@@ -1,0 +1,681 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>memento mori</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="58af3157-3bcf-41ff-866d-119ad19f3078" class="page sans"><header><h1 class="page-title">memento mori</h1></header><div class="page-body"><p id="83ae7ea1-2d13-4391-98de-3a4884937440" class="">alternate title: “<em>muri”-soba (無理そば)</em></p><p id="08e449f5-5b1d-491d-ba2c-14f3bdf97e33" class=""><span class="user">@Elvin Yung</span> &lt;<a href="https://www.instagram.com/shikaku.ramen/">@shikaku.ramen</a>&gt;</p><p id="e3cdf2ed-f863-48e2-8cfb-b384d9960421" class="">2022-07-13</p><p id="cc1528de-ea13-4a99-b0d5-7079c2507766" class="">I learned a lot from my experience executing my first popup serving a take on morisoba, or old-school style tsukemen. Many of the lessons I learned are applicable for things outside ramen. I want to divide my learnings into three categories: learnings directly applicable to ramen, learnings about time management, and learnings about building remarkable products. You don’t have to read these in order, so jump to what you’re interested in first.</p><h1 id="47fb3218-faa5-44ac-889e-6f58a7e3caec" class="">I. Ramen Hot Takes</h1><p id="5f4a3b21-8a37-49eb-9548-96f91da757cc" class="">I’ll start this reflection with what I assume most ramen nerds are here for, which are the learnings I have about ramen, some of which I’ve been thinking for a very long time.</p><p id="39c651e8-7814-41c1-8df2-a08471e23a15" class="">I should explain what I mean by hot takes. Because this was my first popup, my thinking was that I had nothing to lose — I’m a ramen nerd and no one could ever take that away from me — so I might as well serve something that I would feed to ramen nerds like myself. But this also represented a somewhat risky bet that the audience in the general would be open to trying a bowl intended for ramen nerds. The hot takes are essentially the risky bets that I made in this popup. At some point, implicitly, I decided to see how far I can push people’s expectations of what ramen is.</p><p id="24c5ebcc-695a-4eba-a8cc-19b8c32a5da9" class="">
+</p><p id="6ad4ea33-eb53-4c6e-9358-b212cb72bb2e" class=""><em>Morisoba</em>, the old-school style of tsukemen or “dipping noodles”, is a weird thing to serve for a popup in America. People are familiar with ramen as noodle soups, of course, and tsukemen is one step different because the noodles are separated from the soup (among other minor differences). But the tsukemen that most people are familiar with is <em>tonkotsu gyokai</em> tsukemen, with a thick pork and seafood soup and thick noodles, and often topped with <em>gyofun</em> fish powder for an extra punch. So this morisoba is a further step different from that kind of tsukemen, because both the noodles and soup are so thin and light in comparison. So morisoba is two steps different from the ramen that people are already familiar with. </p><p id="d3088102-96ad-48fa-8b09-f8822247744e" class="">Nerd that I am, two years ago I took a bunch of screencaps from a notebook detailing the style in the documentary <em>Ramen Heads</em>, translated the recipe, made it and iterated on it a bunch of times, eventually publishing a <a href="https://www.notion.so/Higashi-Ikebukuro-Taishoken-style-Morisoba-a5b2235ff6ef41ce90b735eaf40129a3">writeup</a> on the style and history. I felt like this was a ramen style that we could reasonably execute, and furthermore, reasonably execute given Yume’s space and equipment.</p><p id="987dd5ca-77ed-42b5-9ac4-29285f98fc08" class="">To introduce this bowl to the audience, I needed to introduce both tsukemen and morisoba in the same speech. Optimal or not, I eventually gravitated on these talking points:</p><ul id="de216093-07fe-46fb-89d3-c1c22f57a996" class="bulleted-list"><li style="list-style-type:disc">this is a really old school take on tsukemen or “dipping noodles”</li></ul><ul id="587f1cfd-b2bb-40b5-ad42-5706b137118b" class="bulleted-list"><li style="list-style-type:disc">the soup is more like a sauce than a broth, but after finishing the noodles, we prepared a separate broth (<em>soupwari</em>) to make the leftover soup enjoyable to drink</li></ul><ul id="dec17e25-192a-4b61-a4a5-5550ba326bf0" class="bulleted-list"><li style="list-style-type:disc">you may notice a few things different between this and modern ramen (or even tsukemen) that you’re familiar with, such as the egg being hard boiled with a yolk that’s creamy instead of jammy, and the some of the chashu being lean instead of fatty. I stressed that many of these were developed before those newer techniques were available, but I still think they’re a great match for the noodles and soup.</li></ul><p id="b82e6fab-10b6-494f-bdd6-5ae76ebf1827" class="">But under the tip of the iceberg, there’s so much more.</p><p id="eed71aa1-3d2a-4544-baf1-d649e79c68fe" class="">
+</p><p id="fa479591-0e4b-4187-94c3-dfd7452d3c9c" class="">Throughout the process of developing this bowl, one of the things I focused on was to continuously discover interesting tricks or ways that I could present a component not only differently from how people expect them to be made or served, but also serve them in better or more remarkable ways. Here are some of them:</p><ul id="b7323846-5c04-4921-8add-58e07f998d50" class="bulleted-list"><li style="list-style-type:disc">Ramen nerds treat the ability to make low hydration noodles as a status symbol, but low hydration (~25-33%) is a good fit only for a few specific ramen styles, and medium hydration (~34-41%) is often boring. Beyond that is a general trend I’ve noticed: the higher the hydration, the better the chew. This is why shops like Shichisai and Nonokura have noodle hydrations of around 50-60%. Most people already knew this, they just haven’t really thought about what it means. What <em>I</em> think it means is that going super high hydration is an easy way to make for a remarkable noodle experience.</li></ul><ul id="3712e1ae-1f89-47f6-9af0-d62c42dce300" class="bulleted-list"><li style="list-style-type:disc">Believe it or not, I’m convinced that pork trotters are the most important ingredient in tsukemen soup. This gives the soup a ton of body without needing to reduce a lot, which is expensive and unpredictable in both time and yield. This soup used a lot of trotters, over 30% of the bone mix. Because it is still true that trotters mainly just provide gelatin and are light in pork flavor, I relied on another trick from Yamagishi-san’s book, which was to add ground pork to the soup at the end to adjust flavor.</li></ul><ul id="305f724e-d50c-4687-87f5-e26f74ae8c80" class="bulleted-list"><li style="list-style-type:disc">The chashu is a simple <em>nikomi</em> style braise, with some caveats. The main thing that makes Taishoken different is that they use their finished soup in the braising liquid. This is a very easy way to give the tare more complexity without having to steep dried fish ingredients directly into the tare. I had some trouble getting one or two of the logs of lean chashu to exactly the right level of collagen breakdown, but largely this method worked beautifully and allowed for great control as well. I then adjust the salinity of the leftover liquid after straining it. I find that this is one of the most elegant ways to make chashu and tare.</li></ul><ul id="2c8df1f1-50c0-4a01-a2cf-e91c3edf9be7" class="bulleted-list"><li style="list-style-type:disc">The amazu (or sweet vinegar) template is even simpler than detailed in my writeup, just equal parts by weight apple cider vinegar and brown sugar. The one thing that makes it remarkable is a method I learned from Tsukemen Michi (whose owner learned it while training at Kashiwa Taishoken): I steep it in apple peels overnight for an extra layer of sweetness and fruitiness.</li></ul><ul id="53e735b3-78e7-48ba-9006-476c04f2d1e3" class="bulleted-list"><li style="list-style-type:disc">The egg cook time is 8 minutes, and then we let it cool naturally with no ice bath (which actually makes them <a href="https://www.nytimes.com/2019/09/23/dining/how-to-hard-boil-eggs.html">easier to peel</a>, but more importantly means we can do it without needing an extra container and buying ice). This is actually not quite a hard boiled egg (we still need to avoid chalky yolks), but instead it has a creamy yolk that I think is a great fit for the soup and noodles.</li></ul><ul id="c0e32d05-f163-44f3-b5e9-1cded7848739" class="bulleted-list"><li style="list-style-type:disc">The soupwari is both simple and economical, but important to the experience. The way that it’s made is also mostly original and something I thought of specifically for this popup. We take out the kombu and dried fish used for the initial soup (this is easier to do with a strainer bag) and make a niban dashi with it, adding extra katsuobushi to taste. All this can be eyeballed in about an hour, just before service.</li></ul><p id="64c374e0-c063-4403-9c7a-1af6deeb6ca3" class="">
+</p><p id="4c494bcb-a17d-469a-9fa0-3efa22bf4acd" class="">Outside Japan, there are often toppings that do nothing in ramen other than to signify that it’s ramen. Most often, these are often menma, naruto, and nori. I want to talk a little bit about how we made these elements valuable and remarkable, and difficulties we had along the way.</p><p id="3b0db8be-105b-4100-8fd6-4ea0383dea1f" class="">Menma is in many ways the most important part of ramen for me. It’s part of what makes ramen “feel” like ramen to me. You could eat it by itself for a crunchy, sweet-savory bite, or slurp it up with noodles. The method that I decided on for this popup was a variation of the method used by Benten, another early tsukemen shop. Yume’s supplier got us <em>shiozuke</em> salt-packed menma, which I repeatedly boiled and soaked over the course of a day in a process called <em>shio-nuki</em> to get rid of the salt and funk. To season, I stir fry them first in a wok with sesame oil, then braised them in the a marinating liquid that was slightly more sweet than savory. I think this makes a product that’s really distinct from how menma is usually made (or more likely, bought) in America. I really wanted to showcase the menma, so I gave each bowl a small handful of it, at least 4-5 pieces. When serving myself at home, I sometimes like to have <a href="https://ramendb.supleks.jp/review/1521436.html">even more</a>.</p><p id="6f94df1f-33f7-422b-b291-7234b5d34521" class="">Naruto makes ramen look like ramen. But most places here serve them in pretty thin slices, which makes them feel invisible and useless. I wanted to serve the bowl with thick slices of naruto. At Higashi-Ikebukuro Taishoken, they even serve the ends of the naruto (the <em>hashikko</em>), which some people consider to be <a href="https://youtu.be/0_QwVOxcrrE?t=281">lucky</a>. Thick naruto is not only distinctive, but it also gives you a way to really appreciate the slight fishy sweetness that’s different from the fishy sweetness of the soup. Jake observes that the naruto is more “present” in this bowl, and I think it’s a great way to put it.</p><p id="945dc1e1-4e62-477f-b468-31deacc8771d" class="">The nori was a sore point during service. We had to add it in at the end and bring it to the customer, but often the nori fell over and started soaking up the soup immediately. I once alluded to the fact that <a href="https://www.instagram.com/p/CdWsR_UvHtn/">flavor wise, this is a good thing</a> because the more soup soaked up by the nori, the more interesting the taste of the nori, but it was something that really hurt presentation and in general something that I would have liked to communicate better.</p><h1 id="196bf927-3044-43e1-88eb-d45cc8e10419" class="">II. Efficiency and Time Management</h1><p id="9e39c7ea-5472-479d-a898-246df15c724c" class="">One of the biggest hurdles I had to go through in the weeks and days leading up to the popup was time management. This involves both being punctual with sending stuff, showing up, working practice shifts to get into the flow of service, doing prep, and also following a process to assemble every component at their peak.</p><p id="e346315d-23cc-419f-b01b-45c195fedeb0" class="">Initially, Jake made me write an exact schedule for every single day of prep. I originally didn’t understand the point of being so exact, since I had a reasonably good idea of what I needed to do, and I had also written out a rough plan for how I would execute various components of the ramen.</p><p id="19c761fc-bf58-4ee2-aed1-eb7bb9c2141b" class="">The core insight that I realized during this time is that the most important feature of a schedule is the <em>slack</em>. If you don’t have a schedule, you procrastinate and slack off a lot and then try to do things all at once, usually poorly. If you have a schedule that has slack built into the estimates, then you follow the schedule, and you get to relax for a bit if you’re ahead of schedule. This rewires your brain to work faster because you get more time to slack off immediately afterwards. A good schedule <em>evenly distributes</em> slacking off time.</p><p id="22c94aa4-138f-403f-87a6-60d16b125735" class="">
+</p><p id="b8aa3f0b-9445-4871-874b-eec556103c37" class="">Of course, another reason why schedules are important here is because time needs to be budgeted, and things <em>take time</em>. As a home cook, a lot of steps take very little time, so in your mind they feel almost instant and you don’t need to budget it. I was already somewhat aware that in a service setting things would take more time, but I didn’t truly realize how much.</p><p id="96aa568c-7cbf-4a44-a5ae-8f0aea323435" class="">Here’s an example. During recipe testing at home I decided that the best boil time for the eggs is 8 minutes with a natural cooldown (no ice bath shock). Making this at home is pretty fast: you crank up the heat on your pot, carefully lower the eggs in to boil (I use a noodle basket to make this simpler), take it out, let it cool down, and peel. All in all, this takes about 15-20 minutes at home, maybe a little bit longer for the cooldown step.</p><p id="4c7445ea-acaa-4cdf-be73-4997ab2af62f" class="">For the popup, we originally decided to make 72 eggs. This ended up taking over 2 hours from start to finish. We had to fill one of the large noodle pots with water, wait for it to boil, carefully lower in the eggs, watch the eggs carefully for 8 minutes to make sure they’re not breaking and they’re cooking evenly, strain them out, and carefully move them to a separate container one by one with tongs. I don’t even want to go into how long it took to peel these eggs.</p><p id="c488e8d6-4ec2-4a3f-b9be-34f89f8d50b6" class=""><em>And</em> we had to do this in multiple batches. So take most of whatever we just did and multiply it by 3-4x. In between batches, we had to wait for water to come back up to boil, and we had to redistribute eggs to make sure newer batches of eggs weren’t further cooking the older batches of eggs in the container (using multiple containers was also wasteful both space and time wise), and at the same time, we had to worry about the thermal mass of each batch of eggs resulting in slower cooldown times and therefore potential overcooking. (This could’ve been alleviated with an ice bath, but then the cook time would be different from what I was already intuitively aware of, and there would be other space and time management issues.)</p><p id="f370f370-f2b2-4ede-9f7b-7a95701de138" class="">I hope this conveys even a fraction of the sense of how much things <em>take time</em>. Now extend that to every single thing we had to prep.</p><p id="b8facd81-b253-43cf-917c-f18803004873" class="">
+</p><p id="4eb6b4eb-dc1e-4bc9-86a1-5cef4e2cbedb" class="">During prep at Yume, <em>everything</em> took more time. Filling pots took time. Waiting for water to boil took time. Straining things took time. Ladling things took time. Measuring things took time. <em>Peeling eggs took so much time</em>. Things took time in a visceral way that I had never felt before, and in a way that I probably would never have truly realized at my day job.</p><p id="5ed13e28-b1a5-403e-a76e-8859515f3caa" class="">I originally thought that I would have to account for prep time differences by adding some <em>percentage</em>, like an extra 30% or 50%, but actually what I had to do was to increase prep time<em> multiplicatively.</em> I had to multiply my estimates by 3-5x, and even then I might still be behind schedule. </p><p id="d351456b-03f5-4bbb-ab8b-4e66333ed7a8" class="">During the first day of prep, I was chronically underbudgeting time for various prep steps. This is bad because it caused me to stay late doing prep. Eventually I got a bit better at this and I started being ahead of the schedule occasionally, but this was a hard lesson to learn and is something I still need to continue to improve on.</p><p id="762b7427-e5ef-499e-8e94-5bdea03aa581" class="">
+</p><p id="5562dd42-dfac-4d86-a759-106e51a99ea8" class="">Another place where timing mattered was during the actual service. In order to serve everything at their peak, we wanted to keep the soup as hot as possible until it gets to the customer. This being tsukemen, the noodles took a relatively long time to cook, and an extra cold shock step at the end gave the noodles extra <em>koshi</em> for texture.</p><p id="0c5e0e4c-e015-4f58-8d49-bd7d83031956" class="">At the original shop, they prebatched large amounts of the bowls with the tare and toppings already in the bowl, and just kept them warm in an oven (<a href="https://youtu.be/4M7m3Dt_MYo?t=97">example</a>). Because we didn’t have access to the same amount of space and equipment, we had to keep the bowls hot in a separate pot, and I couldn’t take them out and start assembling tare etc. until just before we serve the customer. For some batches where we were doing 4-6 bowls all at once, this was really hard for me to time, and I occasionally made the mistake of either pulling the bowls too early or ladling soup too early. I’m not proud to say that some of the soups went out a few degrees cooler than I wanted it to be, and it’s something I aim to improve on over time.</p><p id="39179fea-d6b5-405d-9fe8-69d171e52a47" class="">This mentality of wanting to rush batches of soup bowls also hurt me when presenting the toppings. I don’t know how Taishoken does this, but they can ladle the soup into a bowl in a specific way so that the egg and naruto are visible on top. We just plated the naruto, egg and nori after ladling soup, which meant after every ladling I had to perform 3 touches, and it felt stressful to me at times.</p><p id="7167dfcc-063e-426c-af01-55e72b4625af" class="">Overall, I was surprisingly free of nerves for most of service, but some big batches did cause me to make mistakes, and that’s something I hope to get better at next time.</p><h1 id="5cc6f59e-56dc-4ca3-af2d-26dd4be30c46" class="">III. “Good to Great”</h1><p id="3298f683-f2ba-4322-b7f3-68fd201ec612" class="">Before you read too much into the title, I should clarify that I’m definitely not conceited enough to think I’m making great ramen right off the bat, but I do want to feel like I have a path to do so one day. So here are some thoughts on how I would go about doing that.</p><p id="f960e537-55db-4376-9b0d-3c3f3380f253" class="">
+</p><p id="6302f50f-eb4a-475e-97e0-4f028f3dd608" class="">As background context, I think most ramen in America largely follow a similar template. It’s a milky pork soup with no interesting flavor notes. There are springy, slightly translucent noodles that are probably dyed yellow. There’s a slice or two of rolled pork belly chashu, cut pretty thin. There’s a jammy marinated egg. There might be a couple pieces of neutral-ish shoyu-mirin-ish flavored bamboo shoots. There’s often <em>mayu</em> or black garlic oil (even if it’s not Kumamoto-style ramen). There’s probably a pretty thin piece of <em>narutomaki</em>, which is often there just to visually signify that you’re eating ramen, but doesn’t really do anything else.</p><p id="67725c11-b1cd-47a3-908d-40403e51f42d" class="">Yume wo Katare is one of a few places that truly doesn’t follow that template. It follows a direct lineage to some very interesting ramen shops in Japan with strong cult followings, and through the years, through the ups and downs of the fluctuations or <em>bure</em>, it stays faithful to that lineage.</p><p id="a3231fd9-e05f-4f36-97fc-a19096dac05b" class="">But this must make Jake a pretty lonely person. He is the owner of one of the only shops outside Japan truly serving this style, the only owner in the Yume <em>noren-kai</em> group outside Japan, and out here, I must imagine that he spends a lot of time on the outside, looking in. But with the growth of the ramen community outside Japan, we are all on the outside, looking in. (And for the last two years, literally.) My hope is that as a community, we can do this all together.</p><p id="c02ee1d0-2e28-4f8c-a38c-ec266a1ec141" class="">One conundrum that has often crossed my mind is that people keep saying is that America is not ready for interesting ramen, for things like light chintan soups, heavy seafood elements, hard boiled eggs, and so on. But people are more than happy to have these kinds of bowls when they travel to Japan — so why not here?</p><p id="1a554199-fa88-4452-aeb5-747522edcacc" class="">
+</p><p id="275aa632-d171-47fe-9429-aaf60eef5201" class="">At my day job, we spend a lot of our time thinking about what makes a product truly remarkable. In short, the thinking that I’ve internalized is that a great product is a well executed, cohesive take on something that people are already familiar with, with a few truly remarkable useful features that innovate it, add value, and make the product compelling. But this is much easier said than done.</p><p id="2dd513b4-b8f4-4e2c-a260-62bf49cb0438" class="">The general playbook for building a new product is to find a very narrow problem space or <em>niche</em>, validate that this problem exists for other people to get an <em>audience</em> with a <em>need</em>, and solve the problem very well for your audience. I think this is as applicable to technology as it is to food. In microcosm, tsukemen defines a niche, which gives me a playing field to find an audience and solve a problem and fill an unfilled need. And now that we have a playing field, we can define our strategy.</p><p id="8255399e-2dfe-4854-ac1c-919a550f06a3" class="">
+</p><p id="17d893b0-d0fb-4ee2-a336-7dbff7404381" class=""><a href="https://review.firstround.com/finding-startup-ideas-and-building-in-heavily-regulated-spaces-lessons-from-cash-app-and-carbon-health">Ayokunle Omojola</a>, one of the OG great product managers at my dayjob, has talked about “going unreasonably deep” on a problem space in order to find newer and more innovative solutions that actually benefit people. By going unreasonably deep, you find ideas about not just how to work on things, but also <em>what</em> to work on.</p><p id="11866d16-162c-48d1-810c-5f1dadb732ff" class="">It struck me at some point that going unreasonably deep is really what I’m interested in when talking about the oft-repeated <em>kodawari</em>. By going unreasonably deep in the niche of tsukemen and in Higashi-Ikebukuro Taishoken’s morisoba, I was able to realize some interesting facts that were already known, but I was also able to connect them together in interesting or novel ways to improve the product (like detailed in <em>Part I</em> above), and make various components more interesting or remarkable.</p><p id="9aaed4d5-5bd6-4269-ad0f-4a4a72c781a9" class="">I think that this gave me practice at a process that could be applied to building any product.</p><p id="4d2e7780-71e3-45d5-be65-1f9c6f6ff235" class="">
+</p><p id="c6f611a6-91a3-4a56-90f9-2a3aa67729bb" class="">Thinking about this strategy reminds me of the book <em>Good to Great</em> by Jim Collins. One important idea shared in the book is the <em>hedgehog concept</em>. I won’t go into it too much here, but it’s essentially motivated by an essay by Isaiah Berlin titled <em>The Hedgehog and the Fox</em> and a quote from Archilochus:</p><blockquote id="ebf27bf9-edf0-441c-9217-d2c89d41a09d" class="">A fox knows many things, but a hedgehog knows one big thing.</blockquote><p id="2ad717e5-de23-40c7-b519-23ea6729fc14" class="">The ability to view the world through the lens of single big overarching idea is a concept too complex to talk about here, but in the context of building products, the lesson is to have one simple strategy that you can execute forever until you become the best at what you do. </p><p id="587a1230-7fd4-4875-a5c5-01c24cf1f210" class="">When it comes to ramen, I expect that the consistency of my ability to <em>go unreasonably deep</em> on a ramen style will make or break this strategy.</p><h1 id="f1b46145-9760-41e6-ae99-6ede95af1637" class="">IV. <em>Shūrei</em> (Closing Words)</h1><p id="8237dbad-3e2f-4466-bdde-6a9ffb607746" class="">Thanks so much for having read so far. Needless to say, this popup wouldn’t have happened without the help of so many people. I have so many people to thank.</p><p id="3ad10c02-5b23-4a89-bd82-0562fde4232e" class="">This popup was fucking insane. It’s insane that one of the most prominent ramen heads in the community flew in all the way from Chicago just to help this ramen nerd out, and even more insane that in our infinite wisdom we just stuck him in the dish pit. It’s insane that people from as far as Australia and Indonesia were raving about the popup. It’s insane that we pulled together most of the prep in a day and a half. It’s insane that from what was basically just an idea and 12 seconds of blurry notebook pages, this popup came into being.</p><p id="957c9943-90c3-4b50-9c59-15cf7445207d" class="">I think most of all, I owe an incredible amount of thanks to Jake. Not only did he give me the space and the room to make mistakes, but his mentorship has been invaluable in letting me execute my vision as best as I can.</p><p id="85e31075-11d1-4a63-98a8-ba3b317636be" class="">
+</p><p id="9cddd0c3-4a41-4e57-884e-8d40bdf18fe1" class="">I want to finish my thoughts with a quote from Ben Horowitz’s <em>Hard Thing About Hard Things</em> that has always stuck with me:</p><blockquote id="93511577-3a88-4981-ab1b-3637850d9712" class="">Over the past ten years, technological advances have dramatically lowered the financial bar for starting a new company, but the courage bar for building a great company remains as high as it has ever been.</blockquote><p id="a4f7eb2b-02f5-41ad-a497-28fae547cf65" class="">I think this rings true for ramen. The community has had the tools and knowledge to make great ramen for a while now, but the courage bar to actually get ideas out there remains as high as it has ever been.</p><h1 id="19158efe-c7ee-4baf-9acd-5f91d7b76c71" class="">With Thanks To</h1><ul id="260c015f-bd91-49a8-b288-10815eed3b4d" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.instagram.com/yume_wo_katare/">Jake</a>, for giving me a space and the room to make mistakes</li></ul><ul id="f37c5807-6d80-472f-982c-d63e9eee330c" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.instagram.com/kansuibae/">John</a>, for taking over every aspect of these noodles</li></ul><ul id="7e0b4dea-612e-4e40-b229-bb344c1ce230" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.instagram.com/ramen__lord/">Mike</a>, for coming all the way from Chicago to nerd out</li></ul><ul id="b03714fa-719e-451a-a9a7-5c483b3e5335" class="bulleted-list"><li style="list-style-type:disc">Will, for being an amazing host</li></ul><ul id="cec17c69-bada-4327-aaa1-e2d5c6aafa5e" class="bulleted-list"><li style="list-style-type:disc">Other Yume members I had the pleasure of working with and learning from this time around: Erik, Nick, Ming, Danny, Andrew, Leena, &lt;probably missing some people&gt;</li></ul><ul id="e3d1b729-efec-45dd-883f-4614c2494adb" class="bulleted-list"><li style="list-style-type:disc">The ramen community that made this whole thing fun, and especially the nerds that have dealt with my bullshit over the years: Alex, Andre, Erik, Ismail, and probably others I’m forgetting</li></ul><ul id="ec8a2ed6-a36a-42d9-8053-f9318968f1a6" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.instagram.com/ramenguidejapan/">Cody</a> for providing lots of invaluable on-the-ground information about the various shops </li></ul><ul id="057e005a-00ff-41c3-a8c5-04b45764cc7f" class="bulleted-list"><li style="list-style-type:disc">100+ people who were willing to give this ramen nerd a chance</li></ul><hr id="e570ca3e-dc8c-49c3-846b-c534479a7d5d"/><p id="b03ca244-8a2e-4104-afce-b227dfdd3d5d" class="">これまで読んでくれてありがとう！</p><figure id="1943733f-0c81-4e18-8ac2-5167a8885506" class="link-to-page"><a href="https://www.notion.so/Secret-Pro-Techniques-1943733f0c814e188ac25167a8885506"><span class="icon">🦍</span>Secret Pro Techniques</a></figure><p id="a0482792-59a2-4011-ad89-72db7913bae2" class="">
+</p></div></article></body></html>
