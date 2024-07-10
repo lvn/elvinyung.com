@@ -1,689 +1,1017 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Making Truly Great Noodles at Home</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 2em;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	padding-inline-start: 0;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.page-description {
-    margin-bottom: 2em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-	empty-cells: show;
-}
-.simple-table td {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table th {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table-header-color {
-	background: rgb(247, 246, 243);
-	color: black;
-}
-.simple-table-header {
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(55, 53, 47, 1);
-}
-.highlight-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.highlight-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.highlight-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.highlight-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.block-color-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.block-color-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.block-color-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
-.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
-.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
-.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
-.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
-.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
-.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
-.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
-.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
-.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
-.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
-.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
-.select-value-color-pageGlass { background-color: undefined; }
-.select-value-color-washGlass { background-color: undefined; }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="ec9550bb-6206-4da6-a241-86982a673b6b" class="page sans"><header><h1 class="page-title">Making Truly Great Noodles at Home</h1><p class="page-description"></p></header><div class="page-body"><p id="519a1460-8cd2-439f-b131-e2f8de215b87" class=""><span class="user">@Elvin Yung</span> &lt;<a href="http://instagram.com/shikaku.ramen">@shikaku.ramen</a>&gt;</p><p id="ae71d047-b6a8-44e8-b650-b7d0e48fc423" class=""><em>The “one weird trick” for making low-hydration noodles at home, without special equipment or imported ingredients</em></p><div id="f9dfaae9-94ef-4118-b750-66c5b37ca6b2" class="column-list"><div id="d8d92a22-68ff-4b70-bbe6-526104fe878c" style="width:50%" class="column"><figure id="da91c4a9-00e0-44a7-947a-10b071e76ae6" class="image" style="text-align:right"><a href="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/5c81b826-9f21-4a8e-9a09-39e442f41934.png"><img style="width:384px" src="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/5c81b826-9f21-4a8e-9a09-39e442f41934.png"/></a></figure></div><div id="5c7e1c9a-36af-4644-b723-2f4faba6ef53" style="width:50%" class="column"><figure id="8a04c330-750e-431d-a87e-8a55a0db7ce6" class="image" style="text-align:right"><a href="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/4ed7f2f3-d2f6-4869-86bc-22b7d2f4d4c7.png"><img style="width:288px" src="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/4ed7f2f3-d2f6-4869-86bc-22b7d2f4d4c7.png"/></a></figure></div></div><p id="910f1190-2869-4421-9fae-ca63d1e7e241" class="">If you’re deep enough in the ramen rabbithole, you’ve probably heard some variant of this repeated: it’s really hard to make ramen noodles at home using just a pasta machine. You’ve probably heard that you can’t knead it like pasta and there’s not enough water to form the barely-hydrated crumbles into a workable dough, and that you need noodle machines that can exert tremendous amounts of pressure to turn those crumbles into a super dense dough. I would like to offer a second opinion.</p><p id="fbcd3b10-99ab-415a-ae28-361568bdab9c" class="">I’ve adopted a simple process change that makes noodles with a bounciness, glossiness, and chewiness remarkably close to machine-made noodles in Japan. Not only does it consistently give better results, but it’s also easier than the existing standard method. By focusing first and foremost on building strong gluten, the dough actually becomes <em>easier</em> to work with even for hydrations as low as 27%. Moreover, this technique will help you make better noodles even if you do have a decent noodle machine at home.</p><p id="ba43eb5c-8045-40fc-8c66-c315c3fe9702" class="">I really do think that this is the “one weird trick” for homemade ramen, and I hope you’ll find it useful.</p><h2 id="785eabc8-b195-4c3a-b63c-9a8194835eb7" class="">Why Pasta Rollers Suck For Ramen, and the Cheap Hack</h2><p id="1625f410-40b7-4baf-a608-3900eac21581" class="">The rollers on pasta machines and other home noodle machines (even motorized ones such as KitchenAid’s attachment), of course, are super weak compared to “true” noodle machines. They don’t exert enough pressure downward and inwards on the dough. This means that even if your hydration is perfect and your laminations are too, the gluten ends up instead being stretched outwards or even sheared apart as you roll it through, becoming too brittle before they get a chance to bind into a super dense network.</p><p id="2fbcbd06-a4b6-4044-87ca-513f4f6a03ce" class="">We can’t magically make the pasta roller stronger, but we can shape the dough in a more intentional way to help the process along. For that, we can look at another wheat noodle from Japan, a not-quite-cousin of ramen: udon.</p><p id="26c888a1-35bf-4cd1-af3e-62adbc1e208a" class="">In <em>teuchi</em> or handmade udon, just as in handmade ramen, there is an stage in which the crumbles get stepped down to form into a dough. But unlike ramen, udon places much more emphasis on the stepping stage: the dough is stepped, folded on itself, and then stepped again upwards of <a href="https://flour-net.com/column/flour_udon/column_udon/post_78.html">six times</a> before rolling it out. For udon, in many ways this step <em>is</em> the gluten formation.</p><p id="73be5fa0-3c06-4b8a-ab74-06d4784a8fcd" class="">If you think a little bit more about how the gluten is formed here, it’s much closer to how noodle machines apply forces on dough: a lot of downward and inward pressure exerted on the dough compared to the lateral/fore-aft pressure that stretch it out (and weaken it).</p><p id="cf4e1ae2-c96a-4cbb-9358-e8b7b7f60fa2" class="">The core insight is that you can apply this to lower-hydration dough as well: step more, roll less.</p><h2 id="19cc85b8-6864-437e-9c5a-b2e0d4a76af7" class="">My Current Ramen Noodle Process</h2><p id="eeadf853-ba8b-465e-a44a-1c9ff93ea741" class="">As far as I’ve tried, this method works with any hydration, any salt amount, and any kansui. Here’s a quick demonstration of the process with a basic 38% hydration dough. After mixing and resting the initial crumbles, pack them into a ziploc bag and rest it for about 15-30 minutes. We are then going to step and fold the dough multiple times before feeding it into a pasta roller.</p><p id="70534e77-58d1-4de5-90a5-bb632b3e1b0c" class="">Each time you step, your dough should look something like this:</p><div id="9589f7b9-6927-4199-895d-f11cf9b47513" class="column-list"><div id="783659da-9128-483b-962a-d12b1007693a" style="width:50%" class="column"><figure id="468cdfde-46e4-4565-8324-1987d2b79748" class="image"><a href="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/f47f2efe-ded4-4826-ace7-7fe129f12e86.png"><img style="width:336px" src="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/f47f2efe-ded4-4826-ace7-7fe129f12e86.png"/></a><figcaption>1. after you step on the crumbles for the first or second time, your dough should look like this (or maybe a little bit more spotty depending on how well-hydrated your dough is, still fine)</figcaption></figure></div><div id="7de28900-d3f6-4bb6-bc7c-cf46a68cf0b9" style="width:50%" class="column"><figure id="850e976e-d0e1-4d11-93c9-81cad8736427" class="image" style="text-align:center"><a href="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/460f1061-04ac-4434-91a5-d3004e2a31e3.png"><img style="width:282.4360105913504px" src="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/460f1061-04ac-4434-91a5-d3004e2a31e3.png"/></a><figcaption>2. fold it as evenly as possible, with the less hydrated side of the dough facing inwards</figcaption></figure></div></div><div id="3645b5cc-185a-42c3-9092-bbf9c04222b2" class="column-list"><div id="3b611fe4-a7fd-4142-a1e6-db885b3c9a65" style="width:50%" class="column"><figure id="13c32de0-daae-4faa-a21b-642fb544fac6" class="image"><a href="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/7709a1af-9960-48dd-883e-87345d319336.png"><img style="width:336px" src="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/7709a1af-9960-48dd-883e-87345d319336.png"/></a><figcaption>3. put it in a ziploc bag, put <em>that</em> in a paper bag, and step on it for 1-2 minutes, fold side down and stepping from the edges towards the center</figcaption></figure></div><div id="820d6e3a-8366-421a-a8e6-5e6a03b5be84" style="width:50%" class="column"><figure id="5ed2263d-6dfe-475a-9a9e-f0db4e5caba7" class="image"><a href="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/8f3a3261-d4a6-45c4-967f-a8be19149d9c.png"><img style="width:384px" src="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/8f3a3261-d4a6-45c4-967f-a8be19149d9c.png"/></a><figcaption>4. what the dough looks like after stepping</figcaption></figure></div></div><p id="4adf50ff-d1db-4f65-9632-1d06b3b83a67" class="">And then you just step again. And again, and again…</p><p id="0e4d9eb3-556e-40dd-a251-59af2081d10e" class="">As you fold and step on the dough more and more, rather than becoming hard and brittle, it actually becomes bouncier and bouncier — completely unlike how it behaves when you roll it too many times on a pasta machine. How many times is right? I don’t think there’s a definitive answer — I’ve done anywhere between 3 to 8 steps, optionally with an additional rest in between, and my intuition so far says the ideal is at least 5 steps. (Note: udon intuition doesn’t apply exactly here, since the kansui does a lot to the dough.)</p><p id="e766ae73-2627-45c3-a97d-2346f9efd34d" class="">The next clip shows how the dough feels at around 6 steps. In total that’s mix, rest (still in crumble form), step, fold, step, fold, step, fold, step, fold, step, fold, step, then rest again, thin out, rest <em>again</em>, and cut. (”<a href="https://knowyourmeme.com/memes/katana">glorious nippon gluten, folded over 1000 times</a>”)</p><figure id="d961c215-f833-4925-a6d3-756df4070e50"><div class="source"><a href="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/PXL_20240630_0359479472.mp4">https://prod-files-secure.s3.us-west-2.amazonaws.com/bae31c25-64d2-44f2-bdeb-3d1c6101eac9/f43b8ec9-ba55-4e0d-bd4f-51bca9427a98/PXL_20240630_0359479472.mp4</a></div></figure><p id="e76744d7-b3c8-4eeb-a124-fe2f17d5fc2e" class="">After the dough feels bouncy enough, thin it out using a rolling pin first before feeding it into the pasta roller. Don’t be lazy here — even though the gluten is strong, the pasta roller is too weak to press a thick, densely-packed piece of dough, so it will tear the dough and maybe even break the roller if you try too hard. After thinning it out with the pin and the roller down to the appropriate size, (optionally) let the gluten rest again before <a href="https://www.notion.so/Kiriba-Bante-and-Marcato-Cutters-61709902880a4fc2a92752bee4bc25b7?pvs=21">cutting</a>.</p><p id="49132877-ad28-406b-b02a-4ae293c2e473" class="">And that’s it!</p><h2 id="0604b3aa-1cd6-41c7-bf0b-48b9e6553304" class="">Crazy Low Hydration Noodles + Glossy Noodles</h2><p id="3d8b5970-be06-4890-947b-75788830b872" class="">One beneficial side effect of this trick is that a mix of almost <em>any</em> hydration level will form together into a resilient dough, after two or three steps. (I’ve tried as low as 27%.) It becomes much, much easier to make very low hydration noodle. They benefit from the stronger gluten too, with a more pronounced snappiness.</p><p id="5dc99b01-7d34-4e81-a0e4-e0c0eba124f1" class="">It also seems to help make noodles glossier and more translucent, without using starches or other adjuncts at all. I’m not ready to make a call on the importance of aging yet, but my current hypothesis (pure conjecture from what I’ve observed so far here) is that it’s a lot like <a href="https://www.alcademics.com/2016/04/what-is-directional-freezing.html">making clear ice</a>: you want to minimize trapped air bubbles and pockets of flour since they block light from passing through, and distributing moisture more evenly and building gluten more densely does that. In other words, translucency and glossiness are kind of like the <a href="https://www.kingarthurbaking.com/blog/2022/10/14/what-is-the-windowpane-test-for-bread-dough">windowpane test</a> for noodles.</p><div id="31f59298-1b6f-4659-b602-c734c5df381e" class="column-list"><div id="2685c1c4-5fb7-410f-a1de-4adfcf82c218" style="width:50%" class="column"><figure id="2cf50bc6-4817-4c48-abdd-45d6580f7e48" class="image"><a href="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/PXL_20240624_050926270.jpg"><img style="width:336px" src="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/PXL_20240624_050926270.jpg"/></a></figure></div><div id="507a868c-cd31-496b-8e20-8d1195f9f746" style="width:50%" class="column"><figure id="21f409c4-f999-4015-844a-01a8caf0b221" class="image"><a href="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/PXL_20240628_034625121.jpg"><img style="width:336px" src="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/PXL_20240628_034625121.jpg"/></a></figure></div></div><p id="d5296e60-c333-48b1-a30b-d29be7b7591c" class="">This method is also surprisingly scalable. There are <a href="https://youtu.be/lbfkN21Tx1A?t=523">udon shops in Japan</a> that rely purely on this kind of process to make massive batches of noodles. You can mix and step on the dough as one massive piece, then portion it out and thin as necessary. </p><p id="31f14043-614c-4564-a417-458c28d4eab5" class="">This might be presumptuous to say, but if there is truly any secret technique for making much better ramen, this may be it. Not only is it easier than existing ways to make noodles at home, but it also consistently creates a noodle that is glossier, bouncier, and chewier. Best of all, you don’t need any special noodle machine, Japanese flour, or any other equipment to use this technique — a rolling pin and a handcrank pasta machine will be more than enough for excellent noodles.</p><h2 id="c469bca9-fe95-49d7-b720-7941fa70a6ec" class="">Sources and Further Reading</h2><p id="4e75f15c-6401-4038-9a30-396e9d4cd543" class="">In-depth article about the concept of <em>koshi</em> (hard to translate, but roughly bounciness and chewiness) in noodles:</p><figure id="5ee4eb47-b56c-464c-8c61-9244d8099ec3"><a href="https://note.com/ramenreport/n/n9b55406a491d" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">#3 麺のコシについての解説｜麺 gogo</div><div class="bookmark-description">コシ＝しなやかな弾力  コシとは麺の魅力の最も重要な要素である。噛み始めはしなやかに、しかし噛み進めるほどに弾力が増す魅力的な食感である。 いわゆる「硬い麺」を「コシのある麺」と勘違いしている人もいるかもしれないが、麺のコシとは本来は、小麦のグルテンとデンプンのバランスが生み出す、しなやかな弾力の食感のことである。  このコシは専門的には「麺の外側と中心の水分吸収率の差＝水分勾配」と説明される。  水分勾配の原理  小麦粉で作られた麺は、グルテン網の中にデンプンが入っている構成となっている。 麺の断面構成 この麺を高温湯で茹でると、デンプンが湯中に溶け出すと共に、デンプンが吸水されてい</div></div><div class="bookmark-href"><img src="https://assets.st-note.com/poc-image/manual/note-common-images/production/icons/android-chrome-512x512.png" class="icon bookmark-icon"/>https://note.com/ramenreport/n/n9b55406a491d</div></div><img src="https://assets.st-note.com/production/uploads/images/102106245/rectangle_large_type_2_a68a782d485b290117041e5c4c840059.png?fit=bounds&amp;quality=85&amp;width=1280" class="bookmark-image"/></a></figure><p id="2a1e0baf-da9c-4aef-8eca-18d2d2fcc52c" class="">Detailed udon articles:</p><figure id="a111c7d5-b188-47a3-91ee-5df898506037"><a href="https://baikyoan.com/menkoza/udon/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">小田聞多の麺講座</div><div class="bookmark-description">2019/3/31 をもって Yahoo!ジオシティーズのサービス提供が終了したため、
-				 小田聞多の麺講座 を閲覧することができなくなりました。</div></div><div class="bookmark-href"><img src="https://baikyoan.com/menkoza/udon/baikyoan-32x32.png" class="icon bookmark-icon"/>https://baikyoan.com/menkoza/udon/</div></div></a></figure><figure id="931a9dec-0f5f-4db0-8935-4113a512cc31"><a href="https://www.kijoan.com/eight_training/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">新製法 亀城庵の「八段仕込み」について - 讃岐うどんの通販・お取り寄せ・お中元・お歳暮ならさぬきうどんの亀城庵</div><div class="bookmark-description">■新製法 亀城庵の「八段仕込み」について 八段仕込み製法とは、言うなれば新しいプレス（鍛え）製法です</div></div><div class="bookmark-href"><img src="https://www.kijoan.com/favicon.ico" class="icon bookmark-icon"/>https://www.kijoan.com/eight_training/</div></div></a></figure><figure id="42e46655-23bd-493c-82ce-d0badd047263"><a href="https://flour-net.com/column/flour_udon/column_udon/post_78.html" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">「ミキシング＝混捏（こんねつ）」と「足踏み工程」の意味について | うどんの話 | 讃岐うどんならおまかせ　吉原食糧(株)</div><div class="bookmark-description">前回、「水和」の話を書きました。 小麦粉の粒子に素早く水が浸透し、まんべんなく行き渡ることの重要性（生地全体に均一にグルテン質が形成される必要があるため）と、グルテンが形成され始める初期の段階で時間...</div></div><div class="bookmark-href"><img src="https://flour-net.com/favicon.ico" class="icon bookmark-icon"/>https://flour-net.com/column/flour_udon/column_udon/post_78.html</div></div><img src="https://flour-net.com/archives/001/201807/ac068bdbc6c49b70d4cb1eb5a747094d.jpg" class="bookmark-image"/></a></figure><hr id="4b2dae8f-44f5-4484-abab-6ec6b9f23880"/><p id="17965fad-96f0-40e6-a7a4-3af83ef303d9" class="">Thanks again to <a href="https://www.instagram.com/kansuibae/">John</a>, <a href="https://www.instagram.com/prestonlanders/">Preston Landers</a>, <a href="https://www.instagram.com/ayyzhao/">Alex Zhao</a>, <a href="https://www.instagram.com/tabenru/">Ben</a>, <a href="https://www.instagram.com/shospaeth/">Sho Spaeth</a>, <a href="https://www.instagram.com/cheftimanderson/">Tim Anderson</a>, <a href="https://www.instagram.com/nichijou.ramen/">David Chan</a>, <a href="https://www.instagram.com/ramen__lord/">Mike</a>, and <a href="https://www.linkedin.com/in/sophiaqfang">Sophia</a> for reading this in draft form.</p><p id="0adec84c-dc3b-4f78-8f15-b87a3155c55c" class=""><em>(part of the long-procrastinated </em><em><a href="https://www.notion.so/Secret-Pro-Techniques-1943733f0c814e188ac25167a8885506?pvs=21">Secret Pro Techniques</a></em><em> ramen research series)</em></p><p id="50851859-9e43-473a-8b3c-6340ce1f8fce" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span>
-<!-- GA things -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BCGQBYT7K5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BCGQBYT7K5');
-</script>
-</body></html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Making Truly Great Noodles at Home</title>
+    <style>
+      /* cspell:disable-file */
+      /* webkit printing magic: print all background colors */
+      html {
+        -webkit-print-color-adjust: exact;
+      }
+
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+      }
+
+      html,
+      body {
+        margin: 2em;
+        padding: 0;
+      }
+
+      @media only screen {
+        body {
+          margin: 2em auto;
+          max-width: 900px;
+          color: rgb(55, 53, 47);
+        }
+      }
+
+      body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+      }
+
+      a,
+      a.visited {
+        color: inherit;
+        text-decoration: underline;
+      }
+
+      .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+      }
+
+      h1,
+      h2,
+      h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+      }
+
+      h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+      }
+
+      .callout {
+        border-radius: 3px;
+        padding: 1rem;
+      }
+
+      figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+      }
+
+      figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+      }
+
+      mark {
+        background-color: transparent;
+      }
+
+      .indented {
+        padding-left: 1.5em;
+      }
+
+      hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      @media only print {
+        img {
+          max-height: 100vh;
+          object-fit: contain;
+        }
+      }
+
+      @page {
+        margin: 1in;
+      }
+
+      .collection-content {
+        font-size: 0.875rem;
+      }
+
+      .column-list {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .column {
+        padding: 0 1em;
+      }
+
+      .column:first-child {
+        padding-left: 0;
+      }
+
+      .column:last-child {
+        padding-right: 0;
+      }
+
+      .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+      }
+
+      .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+      }
+
+      .table_of_contents-indent-2 {
+        margin-left: 3rem;
+      }
+
+      .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+      }
+
+      .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+      }
+
+      table {
+        border-left: none;
+        border-right: none;
+      }
+
+      th,
+      td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+      }
+
+      th {
+        color: rgba(55, 53, 47, 0.6);
+      }
+
+      ol,
+      ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+      }
+
+      li>ol:first-child,
+      li>ul:first-child {
+        margin-block-start: 0.6em;
+      }
+
+      ul>li {
+        list-style: disc;
+      }
+
+      ul.to-do-list {
+        padding-inline-start: 0;
+      }
+
+      ul.to-do-list>li {
+        list-style: none;
+      }
+
+      .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+      }
+
+      ul.toggle>li {
+        list-style: none;
+      }
+
+      ul {
+        padding-inline-start: 1.7em;
+      }
+
+      ul>li {
+        padding-left: 0.1em;
+      }
+
+      ol {
+        padding-inline-start: 1.6em;
+      }
+
+      ol>li {
+        padding-left: 0.2em;
+      }
+
+      .mono ol {
+        padding-inline-start: 2em;
+      }
+
+      .mono ol>li {
+        text-indent: -0.4em;
+      }
+
+      .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+      }
+
+      /* Indent toggle children */
+      .toggle>li>details {
+        padding-left: 1.7em;
+      }
+
+      .toggle>li>details>summary {
+        margin-left: -1.1em;
+      }
+
+      .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+      }
+
+      .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+      }
+
+      .page-description {
+        margin-bottom: 2em;
+      }
+
+      .simple-table {
+        margin-top: 1em;
+        font-size: 0.875rem;
+        empty-cells: show;
+      }
+
+      .simple-table td {
+        height: 29px;
+        min-width: 120px;
+      }
+
+      .simple-table th {
+        height: 29px;
+        min-width: 120px;
+      }
+
+      .simple-table-header-color {
+        background: rgb(247, 246, 243);
+        color: black;
+      }
+
+      .simple-table-header {
+        font-weight: 500;
+      }
+
+      time {
+        opacity: 0.5;
+      }
+
+      .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+      }
+
+      img.icon {
+        border-radius: 3px;
+      }
+
+      .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+      }
+
+      .user-icon-inner {
+        font-size: 0.8em;
+      }
+
+      .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+      }
+
+      .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        max-height: 30vh;
+      }
+
+      .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+      }
+
+      .page-header-icon img {
+        border-radius: 3px;
+      }
+
+      .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+      }
+
+      p>.user {
+        opacity: 0.5;
+      }
+
+      td>.user,
+      td>time {
+        white-space: nowrap;
+      }
+
+      input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+      }
+
+      p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+
+      .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+      }
+
+      .code,
+      code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+      }
+
+      code {
+        color: #eb5757;
+      }
+
+      .code {
+        padding: 1.5em 1em;
+      }
+
+      .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      .code>code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+      }
+
+      blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+      }
+
+      .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+      }
+
+      .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+      }
+
+      .bookmark-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+      }
+
+      .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+      }
+
+      .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+      }
+
+      .sans {
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+      }
+
+      .code {
+        font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace;
+      }
+
+      .serif {
+        font-family: Lyon-Text, Georgia, ui-serif, serif;
+      }
+
+      .mono {
+        font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+      }
+
+      .pdf .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP';
+      }
+
+      .pdf:lang(zh-CN) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC';
+      }
+
+      .pdf:lang(zh-TW) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC';
+      }
+
+      .pdf:lang(ko-KR) .sans {
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR';
+      }
+
+      .pdf .code {
+        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+      }
+
+      .pdf:lang(zh-CN) .code {
+        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+      }
+
+      .pdf:lang(zh-TW) .code {
+        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+      }
+
+      .pdf:lang(ko-KR) .code {
+        font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+      }
+
+      .pdf .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP';
+      }
+
+      .pdf:lang(zh-CN) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC';
+      }
+
+      .pdf:lang(zh-TW) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC';
+      }
+
+      .pdf:lang(ko-KR) .serif {
+        font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR';
+      }
+
+      .pdf .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+      }
+
+      .pdf:lang(zh-CN) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+      }
+
+      .pdf:lang(zh-TW) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+      }
+
+      .pdf:lang(ko-KR) .mono {
+        font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+      }
+
+      .highlight-default {
+        color: rgba(55, 53, 47, 1);
+      }
+
+      .highlight-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+      }
+
+      .highlight-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+      }
+
+      .highlight-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+      }
+
+      .highlight-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+      }
+
+      .highlight-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+      }
+
+      .highlight-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+      }
+
+      .highlight-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+      }
+
+      .highlight-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+      }
+
+      .highlight-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+      }
+
+      .highlight-gray_background {
+        background: rgba(241, 241, 239, 1);
+      }
+
+      .highlight-brown_background {
+        background: rgba(244, 238, 238, 1);
+      }
+
+      .highlight-orange_background {
+        background: rgba(251, 236, 221, 1);
+      }
+
+      .highlight-yellow_background {
+        background: rgba(251, 243, 219, 1);
+      }
+
+      .highlight-teal_background {
+        background: rgba(237, 243, 236, 1);
+      }
+
+      .highlight-blue_background {
+        background: rgba(231, 243, 248, 1);
+      }
+
+      .highlight-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+      }
+
+      .highlight-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+      }
+
+      .highlight-red_background {
+        background: rgba(253, 235, 236, 1);
+      }
+
+      .block-color-default {
+        color: inherit;
+        fill: inherit;
+      }
+
+      .block-color-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+      }
+
+      .block-color-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+      }
+
+      .block-color-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+      }
+
+      .block-color-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+      }
+
+      .block-color-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+      }
+
+      .block-color-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+      }
+
+      .block-color-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+      }
+
+      .block-color-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+      }
+
+      .block-color-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+      }
+
+      .block-color-gray_background {
+        background: rgba(241, 241, 239, 1);
+      }
+
+      .block-color-brown_background {
+        background: rgba(244, 238, 238, 1);
+      }
+
+      .block-color-orange_background {
+        background: rgba(251, 236, 221, 1);
+      }
+
+      .block-color-yellow_background {
+        background: rgba(251, 243, 219, 1);
+      }
+
+      .block-color-teal_background {
+        background: rgba(237, 243, 236, 1);
+      }
+
+      .block-color-blue_background {
+        background: rgba(231, 243, 248, 1);
+      }
+
+      .block-color-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+      }
+
+      .block-color-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+      }
+
+      .block-color-red_background {
+        background: rgba(253, 235, 236, 1);
+      }
+
+      .select-value-color-uiBlue {
+        background-color: rgba(35, 131, 226, .07);
+      }
+
+      .select-value-color-pink {
+        background-color: rgba(245, 224, 233, 1);
+      }
+
+      .select-value-color-purple {
+        background-color: rgba(232, 222, 238, 1);
+      }
+
+      .select-value-color-green {
+        background-color: rgba(219, 237, 219, 1);
+      }
+
+      .select-value-color-gray {
+        background-color: rgba(227, 226, 224, 1);
+      }
+
+      .select-value-color-transparentGray {
+        background-color: rgba(227, 226, 224, 0);
+      }
+
+      .select-value-color-translucentGray {
+        background-color: rgba(0, 0, 0, 0.06);
+      }
+
+      .select-value-color-orange {
+        background-color: rgba(250, 222, 201, 1);
+      }
+
+      .select-value-color-brown {
+        background-color: rgba(238, 224, 218, 1);
+      }
+
+      .select-value-color-red {
+        background-color: rgba(255, 226, 221, 1);
+      }
+
+      .select-value-color-yellow {
+        background-color: rgba(253, 236, 200, 1);
+      }
+
+      .select-value-color-blue {
+        background-color: rgba(211, 229, 239, 1);
+      }
+
+      .select-value-color-pageGlass {
+        background-color: undefined;
+      }
+
+      .select-value-color-washGlass {
+        background-color: undefined;
+      }
+
+      .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+      }
+
+      .checkbox-on {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+      }
+
+      .checkbox-off {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+      }
+    </style>
+  </head>
+  <body>
+    <article id="ec9550bb-6206-4da6-a241-86982a673b6b" class="page sans">
+      <header>
+        <h1 class="page-title">Making Truly Great Noodles at Home</h1>
+        <p class="page-description"></p>
+      </header>
+      <div class="page-body">
+        <p id="519a1460-8cd2-439f-b131-e2f8de215b87" class="">
+          <span class="user">@Elvin Yung</span> &lt; <a href="http://instagram.com/shikaku.ramen">@shikaku.ramen</a>&gt;
+        </p>
+        <p id="ae71d047-b6a8-44e8-b650-b7d0e48fc423" class="">
+          <em>The “one weird trick” for making low-hydration noodles at home, without special equipment or imported ingredients</em>
+        </p>
+        <div id="f9dfaae9-94ef-4118-b750-66c5b37ca6b2" class="column-list">
+          <div id="d8d92a22-68ff-4b70-bbe6-526104fe878c" style="width:50%" class="column">
+            <figure id="da91c4a9-00e0-44a7-947a-10b071e76ae6" class="image" style="text-align:right">
+              <a href="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/5c81b826-9f21-4a8e-9a09-39e442f41934.png">
+                <img src="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/5c81b826-9f21-4a8e-9a09-39e442f41934.png" />
+              </a>
+            </figure>
+          </div>
+          <div id="5c7e1c9a-36af-4644-b723-2f4faba6ef53" style="width:50%" class="column">
+            <figure id="8a04c330-750e-431d-a87e-8a55a0db7ce6" class="image" style="text-align:right">
+              <a href="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/4ed7f2f3-d2f6-4869-86bc-22b7d2f4d4c7.png">
+                <img src="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/4ed7f2f3-d2f6-4869-86bc-22b7d2f4d4c7.png" />
+              </a>
+            </figure>
+          </div>
+        </div>
+        <p id="910f1190-2869-4421-9fae-ca63d1e7e241" class="">If you’re deep enough in the ramen rabbithole, you’ve probably heard some variant of this repeated: it’s really hard to make ramen noodles at home using just a pasta machine. You’ve probably heard that you can’t knead it like pasta and there’s not enough water to form the barely-hydrated crumbles into a workable dough, and that you need noodle machines that can exert tremendous amounts of pressure to turn those crumbles into a super dense dough. I would like to offer a second opinion.</p>
+        <p id="fbcd3b10-99ab-415a-ae28-361568bdab9c" class="">I’ve adopted a simple process change that makes noodles with a bounciness, glossiness, and chewiness remarkably close to machine-made noodles in Japan. Not only does it consistently give better results, but it’s also easier than the existing standard method. By focusing first and foremost on building strong gluten, the dough actually becomes <em>easier</em> to work with even for hydrations as low as 27%. Moreover, this technique will help you make better noodles even if you do have a decent noodle machine at home. </p>
+        <p id="ba43eb5c-8045-40fc-8c66-c315c3fe9702" class="">I really do think that this is the “one weird trick” for homemade ramen, and I hope you’ll find it useful.</p>
+        <h2 id="785eabc8-b195-4c3a-b63c-9a8194835eb7" class="">Why Pasta Rollers Suck For Ramen, and the Cheap Hack</h2>
+        <p id="1625f410-40b7-4baf-a608-3900eac21581" class="">The rollers on pasta machines and other home noodle machines (even motorized ones such as KitchenAid’s attachment), of course, are super weak compared to “true” noodle machines. They don’t exert enough pressure downward and inwards on the dough. This means that even if your hydration is perfect and your laminations are too, the gluten ends up instead being stretched outwards or even sheared apart as you roll it through, becoming too brittle before they get a chance to bind into a super dense network.</p>
+        <p id="2fbcbd06-a4b6-4044-87ca-513f4f6a03ce" class="">We can’t magically make the pasta roller stronger, but we can shape the dough in a more intentional way to help the process along. For that, we can look at another wheat noodle from Japan, a not-quite-cousin of ramen: udon.</p>
+        <p id="26c888a1-35bf-4cd1-af3e-62adbc1e208a" class="">In <em>teuchi</em> or handmade udon, just as in handmade ramen, there is an stage in which the crumbles get stepped down to form into a dough. But unlike ramen, udon places much more emphasis on the stepping stage: the dough is stepped, folded on itself, and then stepped again upwards of <a href="https://flour-net.com/column/flour_udon/column_udon/post_78.html">six times</a> before rolling it out. For udon, in many ways this step <em>is</em> the gluten formation. </p>
+        <p id="73be5fa0-3c06-4b8a-ab74-06d4784a8fcd" class="">If you think a little bit more about how the gluten is formed here, it’s much closer to how noodle machines apply forces on dough: a lot of downward and inward pressure exerted on the dough compared to the lateral/fore-aft pressure that stretch it out (and weaken it).</p>
+        <p id="cf4e1ae2-c96a-4cbb-9358-e8b7b7f60fa2" class="">The core insight is that you can apply this to lower-hydration dough as well: step more, roll less.</p>
+        <h2 id="19cc85b8-6864-437e-9c5a-b2e0d4a76af7" class="">My Current Ramen Noodle Process</h2>
+        <p id="eeadf853-ba8b-465e-a44a-1c9ff93ea741" class="">As far as I’ve tried, this method works with any hydration, any salt amount, and any kansui. Here’s a quick demonstration of the process with a basic 38% hydration dough. After mixing and resting the initial crumbles, pack them into a ziploc bag and rest it for about 15-30 minutes. We are then going to step and fold the dough multiple times before feeding it into a pasta roller.</p>
+        <p id="70534e77-58d1-4de5-90a5-bb632b3e1b0c" class="">Each time you step, your dough should look something like this:</p>
+        <div id="9589f7b9-6927-4199-895d-f11cf9b47513" class="column-list">
+          <div id="783659da-9128-483b-962a-d12b1007693a" style="width:50%" class="column">
+            <figure id="468cdfde-46e4-4565-8324-1987d2b79748" class="image">
+              <a href="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/f47f2efe-ded4-4826-ace7-7fe129f12e86.png">
+                <img src="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/f47f2efe-ded4-4826-ace7-7fe129f12e86.png" />
+              </a>
+              <figcaption>1. after you step on the crumbles for the first or second time, your dough should look like this (or maybe a little bit more spotty depending on how well-hydrated your dough is, still fine)</figcaption>
+            </figure>
+          </div>
+          <div id="7de28900-d3f6-4bb6-bc7c-cf46a68cf0b9" style="width:50%" class="column">
+            <figure id="850e976e-d0e1-4d11-93c9-81cad8736427" class="image" style="text-align:center">
+              <a href="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/460f1061-04ac-4434-91a5-d3004e2a31e3.png">
+                <img src="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/460f1061-04ac-4434-91a5-d3004e2a31e3.png" />
+              </a>
+              <figcaption>2. fold it as evenly as possible, with the less hydrated side of the dough facing inwards</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div id="3645b5cc-185a-42c3-9092-bbf9c04222b2" class="column-list">
+          <div id="3b611fe4-a7fd-4142-a1e6-db885b3c9a65" style="width:50%" class="column">
+            <figure id="13c32de0-daae-4faa-a21b-642fb544fac6" class="image">
+              <a href="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/7709a1af-9960-48dd-883e-87345d319336.png">
+                <img src="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/7709a1af-9960-48dd-883e-87345d319336.png" />
+              </a>
+              <figcaption>3. put it in a ziploc bag, put <em>that</em> in a paper bag, and step on it for 1-2 minutes, fold side down and stepping from the edges towards the center </figcaption>
+            </figure>
+          </div>
+          <div id="820d6e3a-8366-421a-a8e6-5e6a03b5be84" style="width:50%" class="column">
+            <figure id="5ed2263d-6dfe-475a-9a9e-f0db4e5caba7" class="image">
+              <a href="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/8f3a3261-d4a6-45c4-967f-a8be19149d9c.png">
+                <img src="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/8f3a3261-d4a6-45c4-967f-a8be19149d9c.png" />
+              </a>
+              <figcaption>4. what the dough looks like after stepping</figcaption>
+            </figure>
+          </div>
+        </div>
+        <p id="4adf50ff-d1db-4f65-9632-1d06b3b83a67" class="">And then you just step again. And again, and again…</p>
+        <p id="0e4d9eb3-556e-40dd-a251-59af2081d10e" class="">As you fold and step on the dough more and more, rather than becoming hard and brittle, it actually becomes bouncier and bouncier — completely unlike how it behaves when you roll it too many times on a pasta machine. How many times is right? I don’t think there’s a definitive answer — I’ve done anywhere between 3 to 8 steps, optionally with an additional rest in between, and my intuition so far says the ideal is at least 5 steps. (Note: udon intuition doesn’t apply exactly here, since the kansui does a lot to the dough.)</p>
+        <p id="e766ae73-2627-45c3-a97d-2346f9efd34d" class="">The next clip shows how the dough feels at around 6 steps. In total that’s mix, rest (still in crumble form), step, fold, step, fold, step, fold, step, fold, step, fold, step, then rest again, thin out, rest <em>again</em>, and cut. (” <a href="https://knowyourmeme.com/memes/katana">glorious nippon gluten, folded over 1000 times</a>”) </p>
+        <figure id="d961c215-f833-4925-a6d3-756df4070e50">
+          <div class="source">
+	    <video>
+	      <source src="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/PXL_20240630_0359479472.mp4" type="video/mp4">
+            </video>
+            </div>
+        </figure>
+        <p id="e76744d7-b3c8-4eeb-a124-fe2f17d5fc2e" class="">After the dough feels bouncy enough, thin it out using a rolling pin first before feeding it into the pasta roller. Don’t be lazy here — even though the gluten is strong, the pasta roller is too weak to press a thick, densely-packed piece of dough, so it will tear the dough and maybe even break the roller if you try too hard. After thinning it out with the pin and the roller down to the appropriate size, (optionally) let the gluten rest again before <a href="https://www.notion.so/Kiriba-Bante-and-Marcato-Cutters-61709902880a4fc2a92752bee4bc25b7?pvs=21">cutting</a>. </p>
+        <p id="49132877-ad28-406b-b02a-4ae293c2e473" class="">And that’s it!</p>
+        <h2 id="0604b3aa-1cd6-41c7-bf0b-48b9e6553304" class="">Crazy Low Hydration Noodles + Glossy Noodles</h2>
+        <p id="3d8b5970-be06-4890-947b-75788830b872" class="">One beneficial side effect of this trick is that a mix of almost <em>any</em> hydration level will form together into a resilient dough, after two or three steps. (I’ve tried as low as 27%.) It becomes much, much easier to make very low hydration noodle. They benefit from the stronger gluten too, with a more pronounced snappiness. </p>
+        <p id="5dc99b01-7d34-4e81-a0e4-e0c0eba124f1" class="">It also seems to help make noodles glossier and more translucent, without using starches or other adjuncts at all. I’m not ready to make a call on the importance of aging yet, but my current hypothesis (pure conjecture from what I’ve observed so far here) is that it’s a lot like <a href="https://www.alcademics.com/2016/04/what-is-directional-freezing.html">making clear ice</a>: you want to minimize trapped air bubbles and pockets of flour since they block light from passing through, and distributing moisture more evenly and building gluten more densely does that. In other words, translucency and glossiness are kind of like the <a href="https://www.kingarthurbaking.com/blog/2022/10/14/what-is-the-windowpane-test-for-bread-dough">windowpane test</a> for noodles. </p>
+        <div id="31f59298-1b6f-4659-b602-c734c5df381e" class="column-list">
+          <div id="2685c1c4-5fb7-410f-a1de-4adfcf82c218" style="width:50%" class="column">
+            <figure id="2cf50bc6-4817-4c48-abdd-45d6580f7e48" class="image">
+              <a href="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/PXL_20240624_050926270.jpg">
+                <img src="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/PXL_20240624_050926270.jpg" />
+              </a>
+            </figure>
+          </div>
+          <div id="507a868c-cd31-496b-8e20-8d1195f9f746" style="width:50%" class="column">
+            <figure id="21f409c4-f999-4015-844a-01a8caf0b221" class="image">
+              <a href="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/PXL_20240628_034625121.jpg">
+                <img src="Making%20Truly%20Great%20Noodles%20at%20Home%20ec9550bb62064da6a24186982a673b6b/PXL_20240628_034625121.jpg" />
+              </a>
+            </figure>
+          </div>
+        </div>
+        <p id="d5296e60-c333-48b1-a30b-d29be7b7591c" class="">This method is also surprisingly scalable. There are <a href="https://youtu.be/lbfkN21Tx1A?t=523">udon shops in Japan</a> that rely purely on this kind of process to make massive batches of noodles. You can mix and step on the dough as one massive piece, then portion it out and thin as necessary. </p>
+        <p id="31f14043-614c-4564-a417-458c28d4eab5" class="">This might be presumptuous to say, but if there is truly any secret technique for making much better ramen, this may be it. Not only is it easier than existing ways to make noodles at home, but it also consistently creates a noodle that is glossier, bouncier, and chewier. Best of all, you don’t need any special noodle machine, Japanese flour, or any other equipment to use this technique — a rolling pin and a handcrank pasta machine will be more than enough for excellent noodles.</p>
+        <h2 id="c469bca9-fe95-49d7-b720-7941fa70a6ec" class="">Sources and Further Reading</h2>
+        <p id="4e75f15c-6401-4038-9a30-396e9d4cd543" class="">In-depth article about the concept of <em>koshi</em> (hard to translate, but roughly bounciness and chewiness) in noodles: </p>
+        <figure id="5ee4eb47-b56c-464c-8c61-9244d8099ec3">
+          <a href="https://note.com/ramenreport/n/n9b55406a491d" class="bookmark source">
+            <div class="bookmark-info">
+              <div class="bookmark-text">
+                <div class="bookmark-title">#3 麺のコシについての解説｜麺 gogo</div>
+                <div class="bookmark-description">コシ＝しなやかな弾力 コシとは麺の魅力の最も重要な要素である。噛み始めはしなやかに、しかし噛み進めるほどに弾力が増す魅力的な食感である。 いわゆる「硬い麺」を「コシのある麺」と勘違いしている人もいるかもしれないが、麺のコシとは本来は、小麦のグルテンとデンプンのバランスが生み出す、しなやかな弾力の食感のことである。 このコシは専門的には「麺の外側と中心の水分吸収率の差＝水分勾配」と説明される。 水分勾配の原理 小麦粉で作られた麺は、グルテン網の中にデンプンが入っている構成となっている。 麺の断面構成 この麺を高温湯で茹でると、デンプンが湯中に溶け出すと共に、デンプンが吸水されてい</div>
+              </div>
+              <div class="bookmark-href">
+                <img src="https://assets.st-note.com/poc-image/manual/note-common-images/production/icons/android-chrome-512x512.png" class="icon bookmark-icon" />https://note.com/ramenreport/n/n9b55406a491d
+              </div>
+            </div>
+            <img src="https://assets.st-note.com/production/uploads/images/102106245/rectangle_large_type_2_a68a782d485b290117041e5c4c840059.png?fit=bounds&amp;quality=85&amp;width=1280" class="bookmark-image" />
+          </a>
+        </figure>
+        <p id="2a1e0baf-da9c-4aef-8eca-18d2d2fcc52c" class="">Detailed udon articles:</p>
+        <figure id="a111c7d5-b188-47a3-91ee-5df898506037">
+          <a href="https://baikyoan.com/menkoza/udon/" class="bookmark source">
+            <div class="bookmark-info">
+              <div class="bookmark-text">
+                <div class="bookmark-title">小田聞多の麺講座</div>
+                <div class="bookmark-description">2019/3/31 をもって Yahoo!ジオシティーズのサービス提供が終了したため、 小田聞多の麺講座 を閲覧することができなくなりました。</div>
+              </div>
+              <div class="bookmark-href">
+                <img src="https://baikyoan.com/menkoza/udon/baikyoan-32x32.png" class="icon bookmark-icon" />https://baikyoan.com/menkoza/udon/
+              </div>
+            </div>
+          </a>
+        </figure>
+        <figure id="931a9dec-0f5f-4db0-8935-4113a512cc31">
+          <a href="https://www.kijoan.com/eight_training/" class="bookmark source">
+            <div class="bookmark-info">
+              <div class="bookmark-text">
+                <div class="bookmark-title">新製法 亀城庵の「八段仕込み」について - 讃岐うどんの通販・お取り寄せ・お中元・お歳暮ならさぬきうどんの亀城庵</div>
+                <div class="bookmark-description">■新製法 亀城庵の「八段仕込み」について 八段仕込み製法とは、言うなれば新しいプレス（鍛え）製法です</div>
+              </div>
+              <div class="bookmark-href">
+                <img src="https://www.kijoan.com/favicon.ico" class="icon bookmark-icon" />https://www.kijoan.com/eight_training/
+              </div>
+            </div>
+          </a>
+        </figure>
+        <figure id="42e46655-23bd-493c-82ce-d0badd047263">
+          <a href="https://flour-net.com/column/flour_udon/column_udon/post_78.html" class="bookmark source">
+            <div class="bookmark-info">
+              <div class="bookmark-text">
+                <div class="bookmark-title">「ミキシング＝混捏（こんねつ）」と「足踏み工程」の意味について | うどんの話 | 讃岐うどんならおまかせ　吉原食糧(株)</div>
+                <div class="bookmark-description">前回、「水和」の話を書きました。 小麦粉の粒子に素早く水が浸透し、まんべんなく行き渡ることの重要性（生地全体に均一にグルテン質が形成される必要があるため）と、グルテンが形成され始める初期の段階で時間...</div>
+              </div>
+              <div class="bookmark-href">
+                <img src="https://flour-net.com/favicon.ico" class="icon bookmark-icon" />https://flour-net.com/column/flour_udon/column_udon/post_78.html
+              </div>
+            </div>
+            <img src="https://flour-net.com/archives/001/201807/ac068bdbc6c49b70d4cb1eb5a747094d.jpg" class="bookmark-image" />
+          </a>
+        </figure>
+        <hr id="4b2dae8f-44f5-4484-abab-6ec6b9f23880" />
+        <p id="17965fad-96f0-40e6-a7a4-3af83ef303d9" class="">Thanks again to <a href="https://www.instagram.com/kansuibae/">John</a>, <a href="https://www.instagram.com/prestonlanders/">Preston Landers</a>, <a href="https://www.instagram.com/ayyzhao/">Alex Zhao</a>, <a href="https://www.instagram.com/tabenru/">Ben</a>, <a href="https://www.instagram.com/shospaeth/">Sho Spaeth</a>, <a href="https://www.instagram.com/cheftimanderson/">Tim Anderson</a>, <a href="https://www.instagram.com/nichijou.ramen/">David Chan</a>, <a href="https://www.instagram.com/ramen__lord/">Mike</a>, and <a href="https://www.linkedin.com/in/sophiaqfang">Sophia</a> for reading this in draft form. </p>
+        <p id="0adec84c-dc3b-4f78-8f15-b87a3155c55c" class="">
+          <em>(part of the long-procrastinated </em>
+          <em>
+            <a href="https://www.notion.so/Secret-Pro-Techniques-1943733f0c814e188ac25167a8885506?pvs=21">Secret Pro Techniques</a>
+          </em>
+          <em> ramen research series)</em>
+        </p>
+        <p id="50851859-9e43-473a-8b3c-6340ce1f8fce" class=""></p>
+      </div>
+    </article>
+    <span class="sans" style="font-size:14px;padding-top:2em"></span>
+    <!-- GA things -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BCGQBYT7K5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-BCGQBYT7K5');
+    </script>
+  </body>
+</html>
