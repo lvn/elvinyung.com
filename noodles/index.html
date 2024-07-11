@@ -26,11 +26,26 @@
           max-width: 900px;
           color: rgb(55, 53, 47);
         }
+	
+      	video {
+	  display: block;
+	  object-fit: cover;
+        }
       }
 	    
       @media only screen and (max-width: 600px) {
         p {
 	  font-size: 20px;
+	}
+      }
+	    
+      @media only screen and (min-width: 601px) {
+      	video {
+	  max-width: 350;
+        }
+
+	.source {	
+	  max-width: 400;
 	}
       }
 
@@ -85,7 +100,6 @@
         border-radius: 3px;
         padding: 1.5em;
         word-break: break-all;
-	max-width: 400;
       }
 
       .callout {
@@ -425,12 +439,6 @@
 
       code {
         color: #eb5757;
-      }
-
-      video {
-	display: block;
-  	object-fit: cover;
-	max-width: 350;
       }
 
       .code {
