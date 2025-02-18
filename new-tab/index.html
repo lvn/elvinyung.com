@@ -12,14 +12,57 @@
             line-height: 1.6;
             margin: 0;
             padding: 40px;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .widgets {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .widget {
+            background: #f8f8f8;
+            padding: 16px 24px;
+            border-radius: 8px;
+        }
+
+        .widget-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .widget-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            margin-bottom: 16px;
+        }
+
+        .weather-item, .market-item, .time-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .positive {
+            color: #16a34a;
+        }
+
+        .negative {
+            color: #dc2626;
         }
 
         .links-list {
             list-style-type: none;
             padding: 0;
             margin: 0;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
         }
 
         .links-list li {
@@ -77,21 +120,6 @@
             font-size: 13px;
         }
 
-        button {
-            background: #2970ff;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 8px;
-            font-size: 14px;
-        }
-
-        button:hover {
-            background: #1a54d9;
-        }
-
         h3 {
             font-size: 16px;
             font-weight: 500;
@@ -100,6 +128,64 @@
     </style>
 </head>
 <body>
+    <div class="widgets">
+        <div class="widget">
+            <div class="widget-title">Weather</div>
+            <div id="weather-widget" class="widget-content">
+                <div class="widget-keys">
+                    <div class="widget-key">Seattle</div>
+                    <div class="widget-key">San Francisco</div>
+                    <div class="widget-key">Tokyo</div>
+                    <div class="widget-key">Pittsburgh</div>
+                </div>
+                <div class="widget-values">
+                    <div class="widget-value">Loading...</div>
+                    <div class="widget-value">Loading...</div>
+                    <div class="widget-value">Loading...</div>
+                    <div class="widget-value">Loading...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="widget">
+            <div class="widget-title">Markets</div>
+            <div id="market-widget" class="widget-content">
+                <div class="widget-keys">
+                    <div class="widget-key">BTC</div>
+                    <div class="widget-key">ETH</div>
+                    <div class="widget-key">SOL</div>
+                    <div class="widget-key">SQ</div>
+                    <div class="widget-key">SHOP</div>
+                </div>
+                <div class="widget-values">
+                    <div class="widget-value">Loading...</div>
+                    <div class="widget-value">Loading...</div>
+                    <div class="widget-value">Loading...</div>
+                    <div class="widget-value">Loading...</div>
+                    <div class="widget-value">Loading...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="widget">
+            <div class="widget-title">Time</div>
+            <div id="time-widget" class="widget-content">
+                <div class="widget-keys">
+                    <div class="widget-key">San Francisco</div>
+                    <div class="widget-key">Hong Kong</div>
+                    <div class="widget-key">Perth</div>
+                    <div class="widget-key">Barcelona</div>
+                </div>
+                <div class="widget-values">
+                    <div class="widget-value">Loading...</div>
+                    <div class="widget-value">Loading...</div>
+                    <div class="widget-value">Loading...</div>
+                    <div class="widget-value">Loading...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <ul class="links-list">
         <li>
             <a href="https://github.com" class="link">GitHub</a>
@@ -128,6 +214,7 @@
     </div>
 
     <script>
+        // Link generator
         function updatePreview() {
             const name = document.getElementById('linkName').value;
             const url = document.getElementById('linkUrl').value;
@@ -140,6 +227,133 @@
                 document.getElementById('output').textContent = '';
             }
         }
+
+        // Weather widget
+        async function fetchWeather() {
+            const cities = {
+                'Seattle': 'seattle,us',
+                'San Francisco': 'san francisco,us',
+                'Tokyo': 'tokyo,jp',
+                'Pittsburgh': 'pittsburgh,us'
+            };
+            
+            for (const [cityName, cityQuery] of Object.entries(cities)) {
+                try {
+                    const response = await fetch(
+                        `https://wttr.in/${cityQuery}?format=%t|%C`
+                    );
+                    const data = await response.text();
+                    const [temp, condition] = data.split('|');
+                    document.querySelector(`#weather-widget .weather-item:has(span:contains('${cityName}')) span:last-child`)
+                        .textContent = `${temp.trim()} ${condition.trim()}`;
+                } catch (error) {
+                    console.error(`Error fetching weather for ${cityName}:`, error);
+                }
+                // Add delay between requests to respect rate limits
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+        }
+
+        // Market widget
+        async function fetchMarkets() {
+            // Fetch both crypto and stock data from Binance's free API
+            const symbols = {
+                'BTC': 'BTCUSDT',
+                'ETH': 'ETHUSDT',
+                'SOL': 'SOLUSDT',
+                'SQ': 'Loading...',  // Placeholder for stocks
+                'SHOP': 'Loading...'
+            };
+
+            // Fetch crypto data from Binance
+            for (const [display, symbol] of Object.entries(symbols)) {
+                if (symbol.endsWith('USDT')) {
+                    try {
+                        // Get current price
+                        const priceResponse = await fetch(
+                            `https://api.binance.com/api/v3/ticker/price?symbol=${symbol}`
+                        );
+                        const priceData = await priceResponse.json();
+                        
+                        // Get 24h price change
+                        const statsResponse = await fetch(
+                            `https://api.binance.com/api/v3/ticker/24hr?symbol=${symbol}`
+                        );
+                        const statsData = await statsResponse.json();
+                        
+                        const price = parseFloat(priceData.price).toFixed(2);
+                        const change = parseFloat(statsData.priceChangePercent).toFixed(1);
+                        const changeClass = parseFloat(change) >= 0 ? 'positive' : 'negative';
+                        
+                        document.querySelector(`#market-widget .market-item:has(span:contains('${display}')) span:last-child`)
+                            .innerHTML = `${price} <span class="${changeClass}">${change}%</span>`;
+                    } catch (error) {
+                        console.error(`Error fetching data for ${symbol}:`, error);
+                    }
+                    // Add delay between requests to respect rate limits
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                }
+            }
+
+            // For stocks (Yahoo Finance API alternative)
+            try {
+                const response = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/SQ?interval=1d');
+                const data = await response.json();
+                const price = data.chart.result[0].meta.regularMarketPrice.toFixed(2);
+                const prevClose = data.chart.result[0].meta.previousClose;
+                const change = ((price - prevClose) / prevClose * 100).toFixed(1);
+                const changeClass = change >= 0 ? 'positive' : 'negative';
+                
+                document.querySelector(`#market-widget .market-item:has(span:contains('SQ')) span:last-child`)
+                    .innerHTML = `${price} <span class="${changeClass}">${change}%</span>`;
+            } catch (error) {
+                console.error('Error fetching SQ stock data:', error);
+            }
+
+            try {
+                const response = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/SHOP?interval=1d');
+                const data = await response.json();
+                const price = data.chart.result[0].meta.regularMarketPrice.toFixed(2);
+                const prevClose = data.chart.result[0].meta.previousClose;
+                const change = ((price - prevClose) / prevClose * 100).toFixed(1);
+                const changeClass = change >= 0 ? 'positive' : 'negative';
+                
+                document.querySelector(`#market-widget .market-item:has(span:contains('SHOP')) span:last-child`)
+                    .innerHTML = `${price} <span class="${changeClass}">${change}%</span>`;
+            } catch (error) {
+                console.error('Error fetching SHOP stock data:', error);
+            }
+        }
+
+        // Time widget
+        function updateTimes() {
+            const cities = {
+                'San Francisco': 'America/Los_Angeles',
+                'Hong Kong': 'Asia/Hong_Kong',
+                'Perth': 'Australia/Perth',
+                'Barcelona': 'Europe/Madrid'
+            };
+
+            for (const [city, timezone] of Object.entries(cities)) {
+                const time = new Date().toLocaleTimeString('en-US', {
+                    timeZone: timezone,
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                document.querySelector(`#time-widget .time-item:has(span:contains('${city}')) span:last-child`)
+                    .textContent = time;
+            }
+        }
+
+        // Initialize and update widgets
+        fetchWeather();
+        fetchMarkets();
+        updateTimes();
+
+        // Set update intervals
+        setInterval(fetchWeather, 300000); // Update weather every 5 minutes
+        setInterval(fetchMarkets, 60000);  // Update markets every minute
+        setInterval(updateTimes, 1000);    // Update time every second
     </script>
 </body>
 </html>
