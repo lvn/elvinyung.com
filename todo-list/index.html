@@ -120,6 +120,26 @@
             margin: 0;
         }
 
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            animation: fadeInOut 2s ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(20px); }
+            10% { opacity: 1; transform: translateY(0); }
+            90% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+
         .prioritized-item {
             padding: 8px 12px;
             margin-bottom: 8px;
@@ -137,7 +157,8 @@
 <body>
     <div class="container">
         <div class="api-key-section">
-            <input type="password" id="apiKey" placeholder="Enter your Anthropic API key" />
+            <p style="margin: 0 0 8px 0; color: #666; font-size: 14px;">Get your API key from the <a href="https://console.anthropic.com/" target="_blank" style="color: #2970ff; text-decoration: none;">Anthropic Console</a></p>
+            <input type="password" id="apiKey" placeholder="Enter your Anthropic API key (sk-...)" />
         </div>
 
         <div class="columns">
@@ -160,12 +181,23 @@
     </div>
 
     <script>
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.remove();
+            }, 2000);
+        }
+
         // Load API key from localStorage
         document.getElementById('apiKey').value = localStorage.getItem('anthropicApiKey') || '';
 
         // Save API key to localStorage when changed
         document.getElementById('apiKey').addEventListener('change', (e) => {
             localStorage.setItem('anthropicApiKey', e.value);
+            showToast('API key saved');
             updatePrioritizedList();
         });
 
@@ -174,6 +206,7 @@
 
         function saveTodos() {
             localStorage.setItem('todos', JSON.stringify(todos));
+            showToast('Todo list saved');
             renderTodos();
             updatePrioritizedList();
         }
@@ -251,7 +284,8 @@
                         headers: {
                             'Content-Type': 'application/json',
                             'x-api-key': apiKey,
-                            'anthropic-version': '2023-06-01'
+                            'anthropic-version': '2023-06-01',
+                            'anthropic-dangerous-direct-browser-access': 'true'
                         },
                         body: JSON.stringify({
                             model: 'claude-3-opus-20240229',
